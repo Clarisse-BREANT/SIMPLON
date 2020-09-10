@@ -33,12 +33,16 @@ img {
 
 header{
     display: flex;
-    
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 75.5%;
+    width: 95%;
 
+}
+
+table {
+    width: 90%;
+    margin-left: 60px;
 }
 
 
@@ -48,9 +52,12 @@ table, td {
     border: 1px solid black;
     padding: 5px;
 
+
 }
 
-#empty1 {
+th {}
+
+#empty1 { /*retrait de ligne inutiles du tableau*/
     border-top: 1px solid white;
     border-left: 1px solid white;
 }
@@ -59,12 +66,30 @@ table, td {
     text-align: center;
 }
 
-.prenom {
-    border-left: 1px solid white;
+
+.dotted { /*Lignes pointillées*/
+    border-right-style: dotted;
+    border-left-style: dotted;
+}
+
+.dotted1 {
+    border-right-style: solid;
+    border-left-style: dotted;
 }
 
 
-#empty2 {
+.nom {
+    border-right-color: white;
+}
+
+.prenom {
+    border-left-color: white;
+    width: 8%;
+    text-align: start;
+}
+
+
+#empty2 { /*retrait de ligne inutiles du tableau*/
     border-bottom: 1px solid white;
     border-left: 1px solid white;
 }
@@ -79,15 +104,16 @@ table, td {
 
 
 #block_cachet{
-    width: 75.5%;
+    width: 93.7%;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 5%;
 
 }
 
 #cachet{
     border: 1px solid black;
-    width: 20%;
+    width: 30%;
     height: 10em;
 
 }
