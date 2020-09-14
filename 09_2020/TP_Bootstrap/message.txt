@@ -1,0 +1,79 @@
+
+    <!-- Début Ligne 1-->
+    <div class="row m-5">
+        <div class="col-6">
+            <div class="alert alert-primary  text-center" role="alert">
+                Col-6
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="alert alert-primary  text-center" role="alert">
+                Col-6
+            </div>
+        </div>
+    </div>
+    <!-- Fin Ligne 1-->
+
+    <!-- Début Ligne 2-->
+    
+    <div class="row m-5">
+        <div class="col-3">
+            <div class="alert alert-danger text-center" role="alert">
+                Col-3
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="alert alert-danger text-center" role="alert">
+                Col-3
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="alert alert-danger text-center" role="alert">
+                Col-3
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="alert alert-danger text-center" role="alert">
+                Col-3
+            </div>
+        </div>
+    </div>
+    <!-- Fin Ligne 2-->
+
+    <!-- Début Ligne 3-->
+    
+    <div class="row m-5">
+        <div class="col-9">
+            <div class="alert alert-danger" role="alert">
+                Col-9
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="alert alert-danger" role="alert">
+                Col-3
+            </div>
+        </div>
+
+    </div>
+    <!-- Fin Ligne 3-->
+    
+    <!-- Début Ligne 4-->
+    
+    <div class="row m-5">
+        <div class="col-4">
+            <div class="alert alert-warning " role="alert">
+                Col-4
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="alert alert-warning " role="alert">
+                Col-4
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="alert alert-warning " role="alert">
+                Col-4
+            </div>
+        </div>
+    </div>
+    <!-- Fin Ligne 4-->
