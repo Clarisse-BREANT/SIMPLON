@@ -24,12 +24,12 @@
 
 </head>
 
-<body>
+<body class="border d-flex flex-column justify-content-center align-items-center bg-light" style="height: 700px;">
 
     <div>
         <div>
             <div>
-                <img src="images/logo_bootstrap.svg" class=".img-fluid. max-width: 20%;" alt="Logo Bootstrap">
+                <img src="images/logo_bootstrap.jpg" style="width: 80px; height:80px;" alt="Logo Bootstrap">
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
     <div>
         <div>
             <div>
-                <h1>Please sign in</h1> 
+                <h2 style="margin-top: 20px; margin-bottom: 20px;">Please sign in</h2> 
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
     <div>
         <div>
             <form action="post">
-                <input type="text" id="adresse_mail" placeholder="Email adresse"> 
+                <input type="text" class="img-thumbnail " id="adresse_mail" placeholder="Email address" style="width: 300px; height: 50px;"> 
             </form>
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div>
         <div>
             <form action="post">
-                <input type="text" id="mot_de_passe" placeholder="Password">
+                <input type="text" class="img-thumbnail" id="mot_de_passe" placeholder="Password" style="width: 300px; height: 50px; ">
                 
             </form>
         </div>
@@ -70,7 +70,7 @@
         <div>
             <form action="post">
                 <input type="checkbox" id="remember_me"> 
-                <label for="remember_me"> Remember me</label>
+                <label style="margin-top: 10px;" for="remember_me"> Remember me</label>
             </form>
         </div>
     </div>
@@ -80,7 +80,7 @@
     <div>
         <div>
             <form action="post">
-                <button type="submit" id="sing_in" class="img-thumbnail">Sign in</button>
+                <button type="submit" id="sign_in" class="img-thumbnail badge badge-primary text-wrap " style="width: 300px; height: 50px;  font-size:larger; margin-top:20px" >Sign in</button>
             </form>
         </div>
     </div>
@@ -89,7 +89,7 @@
     <div>
         <div>
             <footer>
-                <p>© 2017-2020</p>
+                <p class="text-muted" style="margin-top: 100px;">© 2017-2020</p>
             </footer>
         </div>
     </div>
