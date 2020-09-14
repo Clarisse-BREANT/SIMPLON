@@ -1,0 +1,37 @@
+body{
+    border: 1px solid black;
+}
+
+.voiture {
+    position: relative;
+    z-index: 1;
+}
+
+.roue1 {
+    position: absolute;
+    left: 50.5%;
+    top: 20.5%;
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+
+
+.roue2 {
+    position: absolute;
+    left: 16.5%;
+    top: 20.5%;
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+/*Ligne CSS pour faire fonctionner l'animation -webkit-animation*/
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(-359deg);
+    }
+}
+
+/*On pourrait aussi essayer de se servir des transitions mais je n'y suis pas parvenue*/
+
