@@ -1,0 +1,20 @@
+var parcoursGrandRaid = [
+    new google.maps.LatLng(-21.3386061,55.4564224,17),
+    new google.maps.LatLng(-21.3122172,55.5436446,17),
+    new google.maps.LatLng(-21.2497172,55.5980891,17),
+    new google.maps.LatLng(-21.1619394,55.5689224,17),
+    new google.maps.LatLng(-21.1336061,55.4747557,17),
+    new google.maps.LatLng(-21.117495,55.4478113,17),
+    new google.maps.LatLng(-21.1038839,55.4311446,17),
+    new google.maps.LatLng(-21.0530506,55.451978,17),
+    new google.maps.LatLng(-21.039995,55.4239224,17),
+    new google.maps.LatLng(-21.0377728,55.4078113,17),
+    new google.maps.LatLng(-21.0686061,55.3972557,17),
+    new google.maps.LatLng(-21.0505506,55.3783669,17),
+    new google.maps.LatLng(-20.9723283,55.3226446,17),
+    new google.maps.LatLng(-20.9627728,55.3553113,17),
+    new google.maps.LatLng(-20.9388283,55.3290335,17),
+    new google.maps.LatLng(-20.8961061,55.3747557,17),
+    new google.maps.LatLng(-20.9061061,55.4228113,17),
+    new google.maps.LatLng(-20.8847172,55.4400335,17)
+];
