@@ -23,38 +23,53 @@
 </head>
 
 
+
 <body class="d-flex flex-column align-items-center flex-fill" style="height: 800px; background-color: rgb(38, 33, 97);">
 
+    <!-- LIGNE 1 : TITRE -->
     <div> 
         <div>
             <div class="h1 align-self-start mt-5 border rounded border-info p-4" style="color: mediumturquoise;"> SHIFUMI GAMU </div>
         </div>
     </div>
 
+
+
+    <!-- LIGNE 2 : NOM DU JOUEUR ET IA -->
     <div class="d-flex mt-5 justify-content-around" style="width: 1500px; color: mediumturquoise;">
+        <!-- NOM DU JOUEUR -->
         <div>
             <div id="player_name" class="h2 ml-3"> Joueur </div>
         </div>
+        <!-- IA -->
         <div>
             <div class="h2 mr-5"> IA </div>
         </div>
     </div>
 
 
+
+    <!-- LIGNE 3 : CHOIX JOUEUR ET IA + COMPTEUR MANCHES -->
     <div class="d-flex justify-content-around align-items-center mt-5" style=" width:1500px; height: 200px; ">
+
+        <!-- BLOC JOUEUR -->
         <div>
-            <div id="player_choice" class="card rounded" style="height: 200px; width: 200px; margin-left: 200px; background-color: rgb(38, 33, 97)">
+            <div class="card rounded d-flex justify-content-center" style="height: 200px; width: 200px; margin-left: 200px; background-color: rgb(38, 33, 97)">
+                <!-- MANCHES GAGNEES JOUEUR -->
                 <div class="card-header d-flex p-1 justify-content-around">
                     <div id="round_won_player_1" class="border rounded-circle border-info" style="height: 20px; width: 20px;"></div>
                     <div id="round_won_player_2" class="border rounded-circle border-info" style="height: 20px; width: 20px"></div>
                     <div id="round_won_player_3" class="border rounded-circle border-info" style="height: 20px; width: 20px"></div>
                 </div>
-                <div class="card-body" style="border: 5px solid mediumturquoise">
+                <!-- CHOIX JOUEUR -->
+                <div  id="player_choice d-flex justify-content-center" class="card-body" style="border: 5px solid mediumturquoise">
                     <!--<img src="images/" alt="">-->
                 </div>
 
             </div>
         </div>
+
+        <!-- COMPTEUR MANCHES -->
         <div>
             <div class="card border border-primary rounded" style="height: 130px; width: 130px; background-color: mediumturquoise;">
                 <div id="round_counter" class="card-body">
@@ -62,52 +77,61 @@
                 </div>
             </div>
         </div>
+
+        <!-- BLOC IA -->
         <div>
-            <div id="ia_choice" class="card rounded" style="height: 200px; width: 200px; margin-right: 200px; background-color: rgb(38, 33, 97)">
+            <div id="ia_choice" class="card rounded " style="height: 200px; width: 200px; margin-right: 200px; background-color: rgb(38, 33, 97)">
+                <!-- MANCHE GAGNEES IA -->
                 <div class="card-header d-flex p-1 justify-content-around">
                     <div id="round_won_ia_1" class="border rounded-circle border-info" style="height: 20px; width: 20px;"></div>
                     <div id="round_won_ia_2"class="border rounded-circle border-info" style="height: 20px; width: 20px"></div>
                     <div id="round_won_ia_3" class="border rounded-circle border-info" style="height: 20px; width: 20px"></div>
                 </div>
-                <div class="card-body" style="border: 5px solid mediumturquoise">
+                <!-- CHOIX IA -->
+                <div class="card-body d-flex justify-content-center" style="border: 5px solid mediumturquoise">
                     <!--<img src="images/" alt="">-->
                 </div>
             </div>
         </div>
+
     </div>
 
-    <div>
-        
-    </div>
 
+    <!-- LIGNE 4: BLOCS CHOIX -->
     <div class="d-flex justify-content-around mt-5" style="width:1500px; height: 200px; color:mediumturquoise;">
-        <div>
-            <div id="select_cisors" class="d-flex card border border-info rounded align-items-center" style="height: 200px; width: 200px; margin-left: 200px;background-color: rgb(38, 33, 97)">
-                <div class="card-body">
+
+        <!-- BLOC CHOIX CISEAUX-->
+        <div >
+            <div class=" d-flex card border border-info rounded align-items-center" style="cursor: pointer; height: 200px; width: 200px; margin-left: 200px;background-color: rgb(38, 33, 97);">
+                <div class="card-body" action="onclick" src="js/select_choice().js">
                     <img src="images/ciseaux.jpg" alt="Ciseaux">
                 </div>
                 <div class="card-footer" style="height: 45px;">
-                    <p> Ciseaux </p>
+                    <p id="select_cisors"> Ciseaux </p>
                 </div>
             </div>
         </div>
+
+        <!-- BLOC CHOIX FEUILLE -->
         <div>
-            <div id="select_paper" class="d-flex card border border-info rounded align-items-center" style="height: 200px; width: 200px; background-color: rgb(38, 33, 97);">
-                <div class="card-body">
+            <div  class="d-flex card border border-info rounded align-items-center" style="cursor: pointer; height: 200px; width: 200px; background-color: rgb(38, 33, 97);">
+                <div class="card-body" action="onclick" src="js/select_choice().js">
                     <img src="images/feuille.jpg" alt="Feuille">
                 </div>
                 <div class="card-footer" style="height: 45px;">
-                    <p> Feuille </p>
+                    <p id="select_paper"> Feuille </p>
                 </div>
             </div>
         </div>
+
+        <!-- BLOC CHOIX PIERRE -->
         <div>
-            <div id="select_rock" class="d-flex card border border-info rounded align-items-center" style="height: 200px; width: 200px; margin-right: 200px; background-color: rgb(38, 33, 97);">
-                <div class="card-body">
+            <div class="d-flex card border border-info rounded align-items-center" style="cursor: pointer; height: 200px; width: 200px; margin-right: 200px; background-color: rgb(38, 33, 97);">
+                <div class="card-body" action="onclick" src="js/select_choice().js">
                     <img src="images/pierre.jpg" alt="Pierre">
                 </div>
                 <div class="card-footer" style="height: 45px;">
-                    <p> Pierre </p>
+                    <p id="select_rock"> Pierre </p>
                 </div>
             </div>
         </div>
