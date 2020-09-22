@@ -1,6 +1,8 @@
 // SELON QUI GAGNE OU PERD, AFFICHE UN ENCADRÉ COLORÉ PUIS RESET LA BORDURE
-var iaVictory =0
-var playerVictory =0
+var iaVictory =0;
+var playerVictory =0;
+var successiveWin =0;
+var mostSuccessiveWin =0;
 
 function show_round_winner(iaChoice, playerChoice) {
     //PLAYER WIN
@@ -22,6 +24,12 @@ function show_round_winner(iaChoice, playerChoice) {
         }
 
         playerVictory=playerVictory+1;
+        successiveWin++;
+        
+        //Most successive Win
+        if (mostSuccessiveWin<successiveWin) {
+            mostSuccessiveWin=successiveWin;
+        }
 
         //reset round
         setTimeout(function(){
@@ -52,6 +60,7 @@ function show_round_winner(iaChoice, playerChoice) {
         }
 
         iaVictory=iaVictory+1;
+        successiveWin=0;
 
         //reset round
         setTimeout(function(){
@@ -67,13 +76,18 @@ function show_round_winner(iaChoice, playerChoice) {
         document.getElementById("ia_choice").style.borderColor="rgb(255, 154, 38)";
         document.getElementById("player_choice").style.borderColor="rgb(255, 154, 38)";
 
+        successiveWin=0;
+
         //reset round
         setTimeout(function(){
             document.getElementById("player_choice").style.borderColor="rgb(72, 209, 204)";
             document.getElementById("ia_choice").style.borderColor="rgb(72, 209, 204)";},2000);
 
+
     }
 
+    document.getElementById('victoires_affilé').innerText=successiveWin;
+    document.getElementById('plus_de_victoire').innerText=mostSuccessiveWin;
     return[iaVictory, playerVictory]
 
 }
