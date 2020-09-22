@@ -17,12 +17,12 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="js/test().js"></script>
-    <script type="text/javascript" src="js/select_choice().js"></script>
-    <script type="text/javascript" src="js/show_round_winner().js"></script>
+    <script type="text/javascript" src="js/test_game_winner.js"></script>
+    <script type="text/javascript" src="js/select_choice.js"></script>
+    <script type="text/javascript" src="js/show_round_winner.js"></script>
     <script type="text/javascript" src="js/choose_name.js"></script>
-    <script type="text/javascript" src="js/reset_default().js"></script>
-    <script type="text/javascript" src="js/show_game_winner().js"></script>
+    <script type="text/javascript" src="js/reset_default.js"></script>
+    <script type="text/javascript" src="js/show_game_winner.js"></script>
 
     <style>
         .carte:hover {
@@ -48,15 +48,18 @@
 
 
 
-    <!-- LIGNE 2 : NOM DU JOUEUR ET IA -->
-    <div class="d-flex mt-5 justify-content-around" style="width: 1500px; color: mediumturquoise;">
+    <!-- LIGNE 2 : NOM DU JOUEUR, DEFILEMENT INFO VICTOIRES DE LA PARTIE ET IA -->
+    <div class="d-flex mt-5 justify-content-center" style="width: 1500px; color: mediumturquoise;">
         <!-- NOM DU JOUEUR -->
         <div>
-            <h2 id="player_name" class="ml-3"> Joueur </h2>
+            <h2 id="player_name"  style="margin-right: 100px; border: solid turquoise;width: 200px;max-width: 200px; word-wrap: break-word; text-align: center;"> Joueur </h2>
         </div>
+
+        <marquee behavior="scroll" direction="left" width="300px" scrolldelay="70" truespeed scrollamount="4"> Nombre de victoires d'affilé actuel : <span id="victoires_affilé"> 0 </span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      Plus grand nombre de victoires d'affilé : <span id="plus_de_victoire"> 0 </span></marquee>
+
         <!-- IA -->
         <div>
-            <h2 class="mr-5"> IA </h2>
+            <h2 style="margin-left: 100px; border: solid turquoise; width: 200px; text-align: center;"> IA </h2>
         </div>
     </div>
 
@@ -117,7 +120,7 @@
         <!-- BLOC CHOIX CISEAUX-->
         <div >
             <div class="carte d-flex card border border-info rounded align-items-center" style="cursor: pointer; height: 200px; width: 200px; margin-left: 200px;background-color: rgb(38, 33, 97);">
-                <div class="card-body" action="onclick" src="js/select_choice().js">
+                <div class="card-body" action="onclick" src="js/select_choice.js">
                     <img class="clique" onclick="select_choice(2)" src="images/ciseaux.jpg" alt="Ciseaux">
                 </div>
                 <div class="card-footer" style="height: 45px;">
@@ -129,7 +132,7 @@
         <!-- BLOC CHOIX FEUILLE -->
         <div>
             <div class=" carte d-flex card border border-info rounded align-items-center" style="cursor: pointer; height: 200px; width: 200px; background-color: rgb(38, 33, 97);">
-                <div class="card-body" action="onclick" src="js/select_choice().js">
+                <div class="card-body" action="onclick" src="js/select_choice.js">
                     <img onclick="select_choice(1)" src="images/feuille.jpg" alt="Feuille">
                 </div>
                 <div class="card-footer" style="height: 45px;">
@@ -141,7 +144,7 @@
         <!-- BLOC CHOIX PIERRE -->
         <div>
             <div class="carte d-flex card border border-info rounded align-items-center" style="cursor: pointer; height: 200px; width: 200px; margin-right: 200px; background-color: rgb(38, 33, 97);">
-                <div class="card-body" src="js/main().js">
+                <div class="card-body">
                     <img onclick="select_choice(0)" src="images/pierre.jpg" alt="Pierre">
                 </div>
                 <div class="card-footer" style="height: 45px;">
