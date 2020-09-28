@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' type="text/css" href='font/webfontkit-lato/stylesheet.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+    <title>Landing Page</title>
+</head>
+<style>
+    .dotafter:after {
+        content:'\00B7';
+        }
+        span:last-child:after {
+        content: ' ';
+        
+        }
+    .banniere {
+        text-shadow: 2px 2px #3b3b3b; 
+        color:white;
+        font-family:latobold;
+    }
+    .hr {
+        border: 1px solid rgba(224, 211, 198, 0.719);
+        width:155px; margin-left:0px;
+    }
+</style>
+
+
+<body style='background-color:rgba(247, 246, 245, 0.959); font-family:latoregular; max-width:1520px;'>
+
+    <!-- HEADER -->
+    <header class='font-weight-bold' style="height: 25px;">
+        <div class='d-flex justify-content-between mt-2' style='margin-left:20%; margin-right: 20%; font-size:11px;'>
+            <div>
+                <a href='#!' class='text-muted'>Start Bootstrap</a>
+            </div>
+            <div></div>
+            <div>
+                <p>
+                    <a href="#!" class='mr-3 text-muted'>About</a>
+                    <a href="#!" class='mr-3 text-muted'>Services</a>
+                    <a href="#!" class='text-muted'>Contact</a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- BANNIERE -->
+    <div class='d-flex flex-column align-items-center justify-content-center' style='background-image:url(images/banniere_img.png);background-size:1520px 600px; height:600px;'>
+        <div>
+            <h1 class='banniere' style="font-size: 50px">Landing Page</h1>
+        </div>
+        <div>
+            <p class='pl-3 banniere' >A Template by Start Bootstrap</p>
+            <hr style='border: 1px solid white; width:250px'>
+        </div>
+        <div class=''>
+            <button href='#!' class="btn btn-light">
+                <span class="fa fa-twitter mr-1" aria-hidden="true"></span>
+                <span style='font-size: 13px'> TWITTER </span>
+            </button>
+            <button href='#!' class="btn btn-light">
+                <span class="fa fa-github mr-1" aria-hidden="true"></span>
+                <span style='font-size: 13px'> GITHUB </span>
+            </button>
+            <button href='#!' class="btn btn-light">
+                <span class="fa fa-linkedin mr-1" aria-hidden="true"></span>
+                <span style='font-size: 13px;'> LINKEDIN </span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ARTICLE 1 -->
+    <div class='d-flex justify-content-between pt-5 pb-5' style='border-bottom: solid 1px rgb(235, 223, 211);'>
+        <div style='margin-left:20%;'>
+            <hr class='hr'>
+            <h4 style='font-family:latobold'>Death to the Stock Photo : <br/> Special Thanks</h4>
+            <p class='mt-4' style='font-size:14px;'>A special thanks to <a href="#!"> Death to the Stock Photo </a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+        </div>
+        <div style='margin-right: 20%; margin-left:10%'>
+            <img src="images/img1.png" alt="" style='width:350px; height:250px;'>
+        </div>
+    </div>
+
+
+    <!-- ARTICLE 2 -->
+    <div class='d-flex justify-content-between pt-5 pb-5' style='background-color:white;'>
+        <div style='margin-left:20%;'>
+            <img src="images/img2.png" alt="" style='width:400px; height:300px;'>
+        </div>
+        <div style='margin-right: 20%; margin-left:10%'>
+            <hr class='hr'>
+            <h4 style='font-family:latobold'>3D Device Mockups by PSDCovers</h4>
+            <p class='mt-4'  style='font-size:14px;'>Turn tour 2D designs into hight quality, 3D product shots in seconds using free Photoshop actions by <a href="#!"> PSDCovers </a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+        </div>
+    </div>
+
+
+    <!-- ARTICLE 3 -->
+    <div class='d-flex justify-content-between pt-5 pb-5'  style=' border-top: solid 1px rgb(235, 223, 211);'>
+        <div style='margin-left:20%'>
+            <hr class='hr'>
+            <h4 style='font-family:latobold'>Google Web Fonts and Font Awesome Icons</h4>
+            <p class='mt-4' style='font-size:14px;'>This template features the 'Lato' font, part of the Google <a href="#!"> Web Font library</a>, as well as <a href="#!"> icons from Font Awesome </a>.</p>
+        </div>
+        <div class='d-flex' style='margin-right:20%; margin-left:10%'>
+            <img src="images/img3.1.png" alt="" class='align-self-end' style='width:250px; height:120px;'>
+            <img src="images/img3.2.png" alt="" style='width:120px; height:250px;'>
+        </div>
+    </div>
+
+
+    <!-- BANNIERE PIED -->
+    <div class='d-flex justify-content-between align-items-center ' style='background-image:url(images/banniere2_img.png); background-size:1520px 900px; background-position:right 35% bottom 40%;; height: 200px; color:white;'>
+        <div style='margin-left:20%; text-shadow: 2px 2px #3b3b3b'>
+            <h2>Connect to Start Bootstrap:</h2>
+        </div>
+        <div class='text-muted' style="font-family:latolight; margin-right:20%;">
+            <button href='#!' class="btn btn-light">
+                <span class="fa fa-twitter" aria-hidden="true"></span>
+                TWITTER
+            </button>
+            <button href='#!' class="btn btn-light">
+                <span class="fa fa-github" aria-hidden="true"></span>
+                GITHUB
+            </button>
+            <button href='#!' class="btn btn-light">
+                <span class="fa fa-linkedin" aria-hidden="true"></span>
+                LINKEDIN
+            </button>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class='text-muted mb-5 mt-5' style='margin-left:20%; margin-right: 20%; font-size:10px; font-family:latoblack;'>
+        <div>
+            <a href='#!' class='pr-2'>Home</a>
+            <span class='dotafter pr-2'></span>
+            <a href='#!' class='pr-2'>About</a>
+            <span class='dotafter pr-2'></span>
+            <a href='#!' class='pr-2'>Services</a>
+            <span class='dotafter pr-2'></span>
+            <a href='#!' class=''>Contact</a>
+            <p class="mt-3">Copyright©Your Company 2014. All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
