@@ -22,11 +22,20 @@
     <script type="text/javascript" src="js/show_round_winner.js"></script>
     <script type="text/javascript" src="js/choose_name.js"></script>
     <script type="text/javascript" src="js/reset_default.js"></script>
-    <script type="text/javascript" src="js/show_game_winner.js"></script>
+    <script type="text/javascript" src="js/session&localStorage.js"></script>
 
     <style>
         .carte:hover {
             filter: brightness(150%);
+        }
+        
+        table{
+            border: turquoise solid;
+            text-align: center;
+        }
+
+        tr, th, td {
+            border: 1px turquoise solid
         }
     </style>
     
@@ -37,7 +46,7 @@
 
 
 
-<body onload="select_name()" class="d-flex flex-column align-items-center flex-fill" style="height: 800px; background-color: rgb(38, 33, 97);">
+<body onload="select_name()" class="d-flex flex-column align-items-center flex-fill" style="color:turquoise; height: 1500px; background-color: rgb(38, 33, 97);">
 
     <!-- LIGNE 1 : TITRE -->
     <div> 
@@ -52,14 +61,17 @@
     <div class="d-flex mt-5 justify-content-center" style="width: 1500px; color: mediumturquoise;">
         <!-- NOM DU JOUEUR -->
         <div>
-            <h2 id="player_name"  style="margin-right: 100px; border: solid turquoise;width: 200px;max-width: 200px; word-wrap: break-word; text-align: center;"> Joueur </h2>
+            <h2 id="player_name"  style="margin-right: 100px; width: 200px;max-width: 200px; word-wrap: break-word; text-align: center;"> Joueur </h2>
         </div>
 
-        <marquee behavior="scroll" direction="left" width="300px" scrolldelay="70" truespeed scrollamount="4"> Nombre de victoires d'affilé actuel : <span id="victoires_affilé"> 0 </span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      Plus grand nombre de victoires d'affilé : <span id="plus_de_victoire"> 0 </span></marquee>
+        <marquee behavior="scroll" direction="left" width="300px" scrolldelay="70" truespeed scrollamount="4"> 
+            <span style="margin-right: 40px;"> Nombre de victoires d'affilé actuel : <span id="victoires_affilé"> 0 </span></span>   
+            <span>Plus grand nombre de victoires d'affilé : <span id="plus_de_victoire"> 0 </span></span>
+        </marquee>
 
         <!-- IA -->
         <div>
-            <h2 style="margin-left: 100px; border: solid turquoise; width: 200px; text-align: center;"> IA </h2>
+            <h2 style="margin-left: 100px; width: 200px; text-align: center;"> IA </h2>
         </div>
     </div>
 
@@ -90,7 +102,7 @@
         <div>
             <div class="card border border-primary rounded" style="height: 130px; width: 130px; background-color: mediumturquoise;">
                 <div class="card-body d-flex justify-content-center align-items-center pb-0 h1">
-                    <p id="round_counter"> 1 </p>
+                    <p id="round_counter" style="color:black"> 1 </p>
                 </div>
             </div>
         </div>
@@ -150,6 +162,72 @@
                 <div class="card-footer" style="height: 45px;">
                     <p id="select_rock"> Pierre </p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENREGISTRER SCORE -->
+    <div>
+        <div>
+            <div>
+                <button class='btn btn-info mt-5' onclick="request_toppplayers()"> ENREGISTRE TON SCORE !</button>
+            </div>
+        </div>
+    </div>
+
+    <!--TABLEAU TOP PLAYER-->
+    <div>
+        <div>
+            <div>
+                <table style="border: solid turquoise; margin-top:100px; width: 1000px; max-width: 1000px; height: 600px;">
+                    <tr>
+                        <th colspan="2">TOP PLAYER</th>
+                    </tr>
+                    <tr>
+                        <th > Nom du joueur </th>
+                        <th style="max-width: 110px;"> Plus de victoires d'affilé </th>
+                    </tr>
+                    <tr>
+                        <td id='player1name'> Joueur 1er</td>
+                        <td id='player1score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player2name'>Joueur 2eme</td>
+                        <td id='player2score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player3name'>Joueur 3eme</td>
+                        <td id='player3score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player4name'>Joueur 4eme</td>
+                        <td id='player4score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player5name'>Joueur 5eme</td>
+                        <td id='player5score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player6name'>Joueur 6eme</td>
+                        <td id='player6score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player7name'>Joueur 7eme</td>
+                        <td id='player7score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player8name'>Joueur 8eme</td>
+                        <td id='player8score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player9name'>Joueur 9eme</td>
+                        <td id='player9score'></td>
+                    </tr>
+                    <tr>
+                        <td id='player10name'>Joueur 10eme</td>
+                        <td id='player10score'></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
