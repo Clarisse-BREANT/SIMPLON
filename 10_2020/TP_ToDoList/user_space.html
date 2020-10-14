@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Espace Personnel</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+          
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+        <!--FontAwesome-->
+        <script src="https://use.fontawesome.com/10af638c8c.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="css/user_space.css">
+
+
+    </head>
+
+
+
+    <body>
+
+        <div id='main' class='container-fluid d-flex flex-column justify-content-between align-items-center min-vh-100'>
+
+            <header id='header' class='banniere text-center min-vw-100'>
+                <div><img src="" alt="Logo"></div>
+                <div><h1>U-TASK</h1></div> 
+            </header>
+
+            <div class="align-self-start">
+                <input onclick='window.location.href = "task_menu.html"' type="button" value='Retour' class='btn btn-primary'>
+            </div>
+            <h2 class='border rounded p-3'>Espace Personnel</h2>
+
+            <section class='d-flex justify-content-around my-5' >
+
+
+                <article id='workingGroup' class='d-flex flex-column'>
+                    <h3>Groupe de travail</h3>
+
+                    <span class='h4 mt-5'>Rejoindre un groupe:</span>
+                    <form action="" method="POST" id='joinGroup' class='mb-3'>
+                        <label for="groupCode">Code du groupe</label>
+                        <input class='form-control' type="text" id='groupCode' placeholder="Entrez le code du groupe">
+                        <input class='btn btn-primary my-3' type="submit" value='Rejoindre'>
+                    </form>
+
+                    <span class='h4'>Créer un groupe:</span>
+                    <form action="" method="POST" id='CreateGroup' class='mb-3'>
+                        <label for="groupName">Nom du groupe</label>
+                        <input class='form-control' type="text" id='groupName'>
+                        <label for="email">Email</label>
+                        <input class='form-control' type="email">
+                        <label for="password">Mot de passe du groupe</label>
+                        <input class='form-control mb-2' type="password" placeholder="Entrez un mot de passe">
+                        <input class='form-control' type="password" placeholder="Confirmer le mot de passe">
+                        <input class='btn btn-primary my-3' type="submit" value='Créer le groupe'>
+                    </form>
+
+                    <span class='h4'>Supprimer un groupe:</span>
+                    <form action="" method="POST" id='deleteGroup' class='mb-3'>
+                        <select class='form-control' name="groupList" id="deleteGroupList">
+                            <option value="">Choisissez un Groupe</option>
+                        </select>
+                        <input class='btn btn-primary my-3' type="submit" value="Supprimer">
+                    </form>
+
+                    <span class='h4'>Quitter un groupe:</span>
+                    <form action="" method="POST" id='quitGroup' class='mb-3'>
+                        <select class='form-control' name="groupList" id="quitGroupList">
+                            <option value="">Choisissez un Groupe</option>
+                        </select>
+                     <input class='btn btn-primary mt-3' type="submit" value='Quitter le groupe'>
+                    </form>
+
+                </article>
+
+
+                <article id='manageTasks' class='d-flex flex-column'>
+                    <h3>Tâches</h3>
+
+                    <span class='h4 mt-5'>Créer une tâche:</span>
+                    <form action="" method="POST">
+                        <select class='form-control' name="grouplist" id="createTaskGroup">
+                            <option value="">Choisissez un groupe</option>
+                        </select>
+                        <input type="button" id='createTask' class="btn btn-primary form-control mt-3 mb-4" value='Créer une tâche'>
+                    </form>
+
+                    <span class="h4">Annuler une Tâche:</span>
+                    <form action="" method="POST" id='cancelTask' class='mb-3'>
+                        <select class='form-control mb-2' name="group" id="cancelTaskGroup">
+                            <option value="">Choisissez un groupe</option>
+                        </select>
+                        <select class='form-control' name="tasklist" id="cancelTaskList">
+                            <option value="">Choisissez une tâche</option>
+                        </select>
+                        <input type="submit" value='Annuler la tâche' class="btn btn-primary form-control my-3">
+                    </form>
+
+                    <span class='h4'>Modifier une tâche:</span>
+                    <form action="" method="POST" id='modifyTask' class='mb-3'>
+                        <select class='form-control mb-2' name="grouplist" id="modifyTaskGroup">
+                            <option value="">Choisissez un groupe</option>
+                        </select>
+                        <select class='form-control' name="tasklist" id="modifyTaskList">
+                            <option value="">Choisissez une tâche</option>
+                        </select>
+                        <input class="btn btn-primary form-control my-3" type="submit" value="Modifier">
+                    </form>
+
+
+                </article>
+
+
+                <article id='personalData' class='d-flex flex-column mb-5'>
+                    <h3>Données Personnelles</h3>
+
+                    <p class='h4 mt-5'>Nom-Prénom : <span class='h5' id='userEmail'> Nom Prénom</span></p>
+                    <input type="button" class="btn btn-primary w-50 mb-4" id='modifyName' value="Modifier">
+                    <form style='display:none' action="" method="POST" id='changeName' class='mb-3'>
+                        <input class='form-control' type="text" id='newName' placeholder="Nom-Prénom">
+                        <input class='btn btn-primary my-3' type="submit" value='Confirmer'>
+                    </form>
+
+                    <p class='h4'>Email : <span class='h5' id='userEmail'> prenom.nom@gmail.com</span></p>
+                    
+                    <input type="button" class="btn btn-primary w-50 mb-4" id='modifyEmail' value="Modifier">
+                    <form style='display:none' action="" method="POST" id='changeEmail' class='mb-3'>
+                        <input class='form-control' type="text" id='newEmail' placeholder="Email">
+                        <input class='btn btn-primary my-3' type="submit" value='Confirmer'>
+                    </form>
+
+                    <span class='h4'>Photo de profil:</span>
+                    <i class='fas fa-user-circle' style='font-size:36px'></i>
+                    <form action="" method="POST" id='changePP' class='mb-3'>
+                        <input class='btn btn-light' type="file" id='newPP'>
+                    </form>
+
+                </article>
+
+            </section>
+
+            
+
+            <footer id='footer' class='bg-secondary min-vw-100'>
+                <div>
+                    <p class='text-center text-light'>©2020</p>
+                </div>
+            </footer>
+
+        </div>
+
+
+    </body>
+
+
+
+</html>

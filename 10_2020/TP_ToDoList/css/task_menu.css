@@ -1,0 +1,28 @@
+
+#menuAddTask {
+    border-radius: 50%;
+    font-weight: bolder;
+    font-size: xx-large;
+    width: 60px;
+    height: 60px;
+    
+}
+
+.task-owner_date{
+    border-top: 1px solid grey;
+    height: 25px;
+}
+
+.task-finish {
+    border-left: 1px solid black;
+}
+
+.task-statut {
+    border-right: 1px solid black;
+}
+
+.task-block {
+    border: 3px solid black;
+    background-color: rgba(78, 77, 77, 0.514);
+}
+

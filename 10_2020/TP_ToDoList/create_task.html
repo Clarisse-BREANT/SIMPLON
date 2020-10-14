@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Création tâche</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+          
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- CSS -->
+
+
+
+    </head>
+
+
+
+    <body>
+
+        <div  id='main' class='container-fluid d-flex flex-column justify-content-between align-items-center min-vh-100'>
+
+            <header id='header' class='banniere text-center min-vw-100'>
+                <div><img src="" alt="Logo"></div>
+                <div><h1>U-TASK</h1></div> 
+            </header>
+
+            <div id='section'>
+                <div class='my-5 text-center'>
+                        <h2>Nouvelle Tâche</h2>
+                </div>
+
+                <div>
+                    <form action="php/task_form.php" method="POST">
+
+                        <label for="task_name">Nom de la tâche</label>
+                        <input required class='form-control mb-3' placeholder='Entrez le nom de la tâche' type="text" id='task_name'>
+
+                        <label for="task_priority">Priorité de la tâche</label>
+                        <select required class='form-control mb-3' name="task_priority" id="task_priority">
+                            <option value="">...</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="normal">Normal</option>
+                        </select>
+
+                        <!--<label for="task_deadline">Sélectionnez la date d'échéance de la tâche</label>
+                        <input class='form-control mb-3' type="date" id='task_deadline'>
+
+                        <label for="change_priority_auto">Voulez vous programmer un changement de priorité</label>
+                        <select class='form-control mb-3' name="change_priority" id="change_priority_auto">
+                            <option value="non">Non</option>
+                            <option value="oui">Oui</option>
+                        </select>
+
+                        <label for="change_priority_to">Sélectionnez la date de changement et nouveau statut de la tâche</label>
+                        <input class='form-control mb-3' type="date">
+                        <select class='form-control mb-3' name="task_new_priority" id="task_new_priority">
+                            <option value="">...</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="normal">Normal</option>
+                        </select>-->
+                        
+                        <label for="task_description">Description de la tâche</label>
+                        <textarea class='form-control mb-3' id='task_description'></textarea>
+
+                        <div class='text-center mb-5'>
+                            <input class='btn btn-primary my-3 w-25' type="button" name="cancel" value="Annuler" onclick='window.location.href = "task_menu.html"'>
+                            <input class='btn btn-primary my-3' type="submit" value='Créer la tâche'>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <footer id='footer' class='bg-secondary min-vw-100'>
+                <div>
+                    <p class='text-center text-light'>©2020</p>
+                </div>
+            </footer>
+
+        </div>
+
+
+    </body>
+
+
+
+</html>

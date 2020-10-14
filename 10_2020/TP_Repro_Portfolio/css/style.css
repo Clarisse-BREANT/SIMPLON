@@ -1,0 +1,44 @@
+
+body {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background-color: #282929;
+}
+
+
+
+.navbar {
+    background-color: rgba(38, 41, 42, 0.2);
+
+}
+
+.home {
+    background-image: url(../images/home.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+   
+}
+
+.contact-btn {
+    min-width: 175px;
+    color: rgb(232, 230, 227);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 0;
+    border:none;
+    border-radius: 3em;
+    background:linear-gradient(to right, #c79864, #cc7f39);;
+}
+
+.input-name .input-email .input-subject {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .4);
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    height: 46px;
+    padding: 12px;
+    width: 100%;
+}
