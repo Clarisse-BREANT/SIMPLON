@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Register</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <form action="form.php" method='POST'>
+        <div id='head'>
+            <h2>EVENT REGISTRATION FORM</h2>
+        </div>
+ 
+
+        <div class='container flex'>
+            <div>
+                <span>Name</span>
+            </div>
+            <div class='input'>
+                    <input type="text" id='first_name'>
+                    <small>
+                        <label for="first_name">First Name</label>
+                    </small>
+            </div>
+                
+            <div class='input'>
+                <input type="text" id='last_name'>
+                <small>
+                    <label for="last_name">Last Name</label>
+                <small>
+            </div>  
+        </div>
+            
+        <div class='container flex'>
+            <div>
+                <span>Company</span>
+            </div>
+            <div>
+                <input type="text">
+            </div>
+        </div>
+
+        <div class='container flex'>
+            <div>
+                <span>Email</span>
+            </div>
+            <div  id='email'>
+                <input type="email">
+            </div>
+        </div>
+
+        <div class='container flex'>
+            <div>
+                <span>Phone</span>
+            </div>
+            <div class='input'>
+                <input type="number" id='truc_code'>
+                <small><label for="area_code">Area Code</label></small>
+            </div>
+            <div class='input'>
+                <input type="number" id='phone_number'>
+                <small><label for="phone_number">Phone number</label></small>
+            </div>
+            
+        </div>
+
+        <div class='container'>
+            <span>Subject</span>
+            <select name="" id="">
+                <option value="">Choose option</option>
+            </select>
+        </div>
+
+        <div class='container'>
+            <p>Are you an existing consumer</p>
+            <label for="radio1" class='radio_label'><input type="radio" name='radio' class='radio'>Yes</label>
+            
+            <label for="radio2" class='radio_label'><input type="radio" name='radio' class='radio'>No</label>
+            
+        </div>
+
+        <div class='container'>
+            <input id='register' type="submit" value="REGISTER">
+        </div>
+        
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+body{
+    margin:0px;
+    padding:0px;
+    height: 100vh;
+    background-image: linear-gradient(to bottom left, rgb(156, 54, 252),rgb(37, 150, 238));
+    font-size: 12px;
+
+}
+
+
+
+
+
+form{
+    background-color: white;
+    margin:auto;
+    margin-top: 50px;
+    border:2px solid black;
+    max-width: 40vw;
+    border-radius: 20px;
+}
+
+
+
+
+
+#head{
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0px;
+    border:1px solid black;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    font-size: 13px;
+}
+
+
+span{
+    font-weight: bold;
+}
+
+input{
+    background-color: rgb(229, 229, 229);
+    border-radius: 5px;
+    margin: 0.25rem;
+    padding: 0.5rem;
+    border: hidden;
+}
+
+
+
+
+.container{
+    margin:70px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+
+div {
+    border: 1px solid red;
+}
+
+
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.input{
+    color:grey;
+    inline-size: auto;
+}
+.input>input{
+    display: block
+}
+
+
+#email{
+    width: 580px;
+}
+
+#email>input{
+    width: 555px
+}
+
+
+#area_code{
+    width: 50px;
+}
+#phone_number{
+
+}
+
+
+
+
+.radio_label{
+    margin-right: 60px;
+}
+
+
+
+
+
+
+#register{
+    background-color: rgb(255, 75, 90);
+    color: white;
+}
