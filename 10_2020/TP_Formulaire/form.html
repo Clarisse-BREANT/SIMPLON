@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Register</title>
     <link rel="stylesheet" href="css/form.css">
+    <script src='form.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,18 +22,18 @@
         <!--ROW 1-->
         <div class='container flex'>
             <!--LABEL-->
-            <div class='margin-right'>
-                <span><label for="name"> Name</label></span>
+            <div id='name_label'>
+                <span><label for="">Name</label></span>
             </div>
             <!--INPUT-->
-            <div class='input' id='name'>
+            <div class='name'>
                     <input type="text" id='first_name'>
                     <small>
                         <label for="first_name">First Name</label>
                     </small>
             </div>
             <!--INPUT-->
-            <div class='input'>
+            <div class='name'>
                 <input type="text" id='last_name'>
                 <small>
                     <label for="last_name">Last Name</label>
@@ -42,7 +44,7 @@
         <!--ROW 2-->
         <div class='container flex'>
             <!--LABEL-->
-            <div class='margin-right' id='company_label'>
+            <div  id='company_label'>
                 <span><label for="company_name">Company</label> </span>
             </div>
             <div id='company'>
@@ -53,7 +55,7 @@
         <!--ROW 3-->
         <div class='container flex'>
             <!--LABEL-->
-            <div class='margin-right'>
+            <div id='email_label'>
                 <span><label for="customer_email">Email</label> </span>
             </div>
             <div  id='email'>
@@ -65,42 +67,52 @@
         <!--ROW 4-->
         <div class='container flex' id='phone'>
             <!--LABEL-->
-            <div class='margin-right'>
+            <div id='phone_label'>
                 <span><label for="phone">Phone</label> </span>
             </div>
             <!--INPUT-->
-            <div class='input' id='code'>
-                <input type="number" id='area_code'>
+            <div id='code'>
+                <input type="text" id='area_code'>
                 <small><label for="area_code">Area Code</label></small>
             </div>
             <!--INPUT-->
-            <div class='input' id='number'>
-                <input type="number" id='phone_number'>
+            <div id='number'>
+                <input type="text" id='phone_number'>
                 <small><label for="phone_number">Phone number</label></small>
             </div>
         </div>
 
         <!--ROW 5-->
-        <div class='container flex'>
+        <div class='container toto_flex select'>
             <!--LABEL-->
-            <div class='margin-right'>
+            <div id='toto_label'>
                 <span><label for="option">Subject</label></span>
             </div>
             
             <!--INPUT-->
-            <select name="" id="option">
+            <select name="" id='toto'>
                 <option value="">Choose option</option>
             </select>
+            <!--<select name="">
+                <option value="">Choose option</option>
+            </select>-->
         </div>
 
         <!--ROW 6-->
         <div class='container'>
             <!--CHECKBOX-->
-            <p>Are you an existing consumer</p>
-            <!--INPUT-->
-            <label for="radio1" class='radio_label'><input type="radio" name='radio' class='radio' id='old_consumer'>Yes</label>
-            <!--INPUT-->
-            <label for="radio2" class='radio_label'><input type="radio" name='radio' class='radio' id='new_consumer'>No</label>
+            <p>Are you an existing consumer?</p>
+            <label class="radio">
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+                Yes
+            </label>
+            <label class="radio">
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                No
+            </label>
+            
         </div>
 
         <!--ROW 7-->

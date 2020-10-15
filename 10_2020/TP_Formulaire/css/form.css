@@ -12,18 +12,18 @@ form{
     background-color: white;
     margin:auto;
     margin-top: 50px;
-    border:2px solid black;
     max-width: 40vw;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 #head{
     background-color: black;
     color: white;
     text-align: center;
     margin: 0px;
+    margin-bottom: 40px;
     border:1px solid black;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     font-size: 13px;
 }
 .container{
@@ -33,13 +33,10 @@ form{
 
 }
 div {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 span, p{
     font-weight: bold;
-}
-.margin-right{
-    margin-right: 10%;
 }
 
 
@@ -49,35 +46,45 @@ span, p{
 .flex{
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    
+    justify-content:space-between;  
 }
 
 
 /*INPUTS*/
 
-input{
+input, #option{
     background-color: rgb(229, 229, 229);
     border-radius: 5px;
     margin: 0.25rem;
-    padding: 0.5rem;
-    border: hidden;
-    
+    padding: 0.9rem;
+    border: hidden;   
 }
-.input{
+
+
+/*NAME*/
+
+.name{
     color:grey;
-    inline-size: auto;
+    width: 40%;
 }
-.input>input{
-    display: block
+.name>input{
+    display: block;
+    width: 84%;
 }
+#name_label{
+    margin-right: 6%;
+}
+
 
 
 
 /*COMPANY ROW*/
 
-#company, #company>input{
-    width: 100%;
+#company{
+    width: 90%;
+}
+#company>input{
+    width: 92%;
 }
 #company_label{
     margin-right: 5%;
@@ -86,30 +93,54 @@ input{
 
 /*EMAIL ROW*/
 
-#email, #email>input{
+#email{
     width: 100%;
+}
+#email>input{
+    width: 92%;
+}
+#email_label{
+    margin-right: 9.5%;
 }
 
 
 /*PHONE ROW*/
 
+#phone_label{
+    margin-right: 6%;
+}
 #code{
     width: 15%;
+    color:grey;
 }
 #code>input{
-    width: 90%;
+    width: 55%;
 }
 #number{
     width: 65%;
+    color:grey;
 }
 #number>input{
-    width: 100%;
+    width: 90%;
+}
+
+/*SELECT OPTION*/
+#toto{
+    color:rgb(85, 85, 85);
+    width: 85%;
+    height: 45px;
+}
+.toto_flex{
+    display: flex;
+    align-items: center;
+}
+#toto_label{
+    margin-right: 7%;
 }
 
 
 /*QUESTION ROW*/
-
-.radio_label{
+.radio{
     margin-right: 60px;
 }
 
@@ -120,4 +151,18 @@ input{
     background-color: rgb(255, 75, 90);
     color: white;
     width: 25%;
+    font-weight: bold;
+    margin-bottom: 40px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
