@@ -1,3 +1,5 @@
+/*MAIN*/
+
 body{
     margin:0px;
     padding:0px;
@@ -6,11 +8,6 @@ body{
     font-size: 12px;
 
 }
-
-
-
-
-
 form{
     background-color: white;
     margin:auto;
@@ -19,11 +16,6 @@ form{
     max-width: 40vw;
     border-radius: 20px;
 }
-
-
-
-
-
 #head{
     background-color: black;
     color: white;
@@ -34,11 +26,35 @@ form{
     border-top-right-radius: 18px;
     font-size: 13px;
 }
+.container{
+    margin:70px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 
-
-span{
+}
+div {
+    border: 1px solid red;
+}
+span, p{
     font-weight: bold;
 }
+.margin-right{
+    margin-right: 10%;
+}
+
+
+
+/*DISPLAY FLEX*/
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    
+}
+
+
+/*INPUTS*/
 
 input{
     background-color: rgb(229, 229, 229);
@@ -46,28 +62,6 @@ input{
     margin: 0.25rem;
     padding: 0.5rem;
     border: hidden;
-}
-
-
-
-
-.container{
-    margin:70px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-
-}
-
-div {
-    border: 1px solid red;
-}
-
-
-
-.flex{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     
 }
 .input{
@@ -79,35 +73,51 @@ div {
 }
 
 
-#email{
-    width: 580px;
+
+/*COMPANY ROW*/
+
+#company, #company>input{
+    width: 100%;
 }
-
-#email>input{
-    width: 555px
-}
-
-
-#area_code{
-    width: 50px;
-}
-#phone_number{
-
+#company_label{
+    margin-right: 5%;
 }
 
 
+/*EMAIL ROW*/
 
+#email, #email>input{
+    width: 100%;
+}
+
+
+/*PHONE ROW*/
+
+#code{
+    width: 15%;
+}
+#code>input{
+    width: 90%;
+}
+#number{
+    width: 65%;
+}
+#number>input{
+    width: 100%;
+}
+
+
+/*QUESTION ROW*/
 
 .radio_label{
     margin-right: 60px;
 }
 
 
-
-
-
+/*REGISTER ROW*/
 
 #register{
     background-color: rgb(255, 75, 90);
     color: white;
+    width: 25%;
 }

@@ -8,80 +8,104 @@
 </head>
 
 <body>
+
+    <!--FORMULAIRE-->
+
     <form action="form.php" method='POST'>
+        <!--EN TETE-->
         <div id='head'>
             <h2>EVENT REGISTRATION FORM</h2>
         </div>
  
-
+        <!--ROW 1-->
         <div class='container flex'>
-            <div>
-                <span>Name</span>
+            <!--LABEL-->
+            <div class='margin-right'>
+                <span><label for="name"> Name</label></span>
             </div>
-            <div class='input'>
+            <!--INPUT-->
+            <div class='input' id='name'>
                     <input type="text" id='first_name'>
                     <small>
                         <label for="first_name">First Name</label>
                     </small>
             </div>
-                
+            <!--INPUT-->
             <div class='input'>
                 <input type="text" id='last_name'>
                 <small>
                     <label for="last_name">Last Name</label>
-                <small>
+                </small>
             </div>  
         </div>
             
+        <!--ROW 2-->
         <div class='container flex'>
-            <div>
-                <span>Company</span>
+            <!--LABEL-->
+            <div class='margin-right' id='company_label'>
+                <span><label for="company_name">Company</label> </span>
             </div>
-            <div>
-                <input type="text">
+            <div id='company'>
+                <input type="text" id='company_name'>
             </div>
         </div>
 
+        <!--ROW 3-->
         <div class='container flex'>
-            <div>
-                <span>Email</span>
+            <!--LABEL-->
+            <div class='margin-right'>
+                <span><label for="customer_email">Email</label> </span>
             </div>
             <div  id='email'>
-                <input type="email">
+                <!--INPUT-->
+                <input type="email" id='customer_email'>
             </div>
         </div>
 
-        <div class='container flex'>
-            <div>
-                <span>Phone</span>
+        <!--ROW 4-->
+        <div class='container flex' id='phone'>
+            <!--LABEL-->
+            <div class='margin-right'>
+                <span><label for="phone">Phone</label> </span>
             </div>
-            <div class='input'>
-                <input type="number" id='truc_code'>
+            <!--INPUT-->
+            <div class='input' id='code'>
+                <input type="number" id='area_code'>
                 <small><label for="area_code">Area Code</label></small>
             </div>
-            <div class='input'>
+            <!--INPUT-->
+            <div class='input' id='number'>
                 <input type="number" id='phone_number'>
                 <small><label for="phone_number">Phone number</label></small>
             </div>
-            
         </div>
 
-        <div class='container'>
-            <span>Subject</span>
-            <select name="" id="">
+        <!--ROW 5-->
+        <div class='container flex'>
+            <!--LABEL-->
+            <div class='margin-right'>
+                <span><label for="option">Subject</label></span>
+            </div>
+            
+            <!--INPUT-->
+            <select name="" id="option">
                 <option value="">Choose option</option>
             </select>
         </div>
 
+        <!--ROW 6-->
         <div class='container'>
+            <!--CHECKBOX-->
             <p>Are you an existing consumer</p>
-            <label for="radio1" class='radio_label'><input type="radio" name='radio' class='radio'>Yes</label>
-            
-            <label for="radio2" class='radio_label'><input type="radio" name='radio' class='radio'>No</label>
-            
+            <!--INPUT-->
+            <label for="radio1" class='radio_label'><input type="radio" name='radio' class='radio' id='old_consumer'>Yes</label>
+            <!--INPUT-->
+            <label for="radio2" class='radio_label'><input type="radio" name='radio' class='radio' id='new_consumer'>No</label>
         </div>
 
+        <!--ROW 7-->
         <div class='container'>
+            <!--SUBMIT-->
             <input id='register' type="submit" value="REGISTER">
         </div>
         
