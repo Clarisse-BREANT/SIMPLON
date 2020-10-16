@@ -40,7 +40,9 @@ span, p{
     font-weight: 900;
 }
 
-
+small{
+    margin-left: 5px;
+}
 
 /*DISPLAY FLEX*/
 
@@ -126,17 +128,21 @@ input, #option{
 }
 
 /*SELECT OPTION*/
-#toto{
-    color:rgb(85, 85, 85);
-    width: 85%;
-    height: 45px;
+.mystyle select {
+    background: transparent;
+    width: 460px;
+    height: 35px;
+    border: none;
+    font-size: 18px;
+    color: grey;
 }
-.toto_flex{
-    display: flex;
-    align-items: center;
-}
-#toto_label{
-    margin-right: 7%;
+.mystyle {
+    width: 440px;
+    height: 34px;
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+    background: url("arrow-down-01-512.png") 96% / 5% no-repeat rgba(216, 215, 215, 0.726);
 }
 
 
