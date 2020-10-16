@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <style>
-/* The container */
-.container {
-  display: block;
+  body{
+    border: 1px solid green;
+  }
+ /* Customize the label (the container) */
+ .container {
+  border: 1px solid red;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin-left: 12px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -20,6 +23,8 @@
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 /* Create a custom radio button */
@@ -53,17 +58,18 @@
 /* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
+  background-color: rgb(105, 209, 1);
 }
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	background: rgb(2, 218, 2);
-}
+  top: 5px;
+  left: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+} 
 </style>
 <body>
 
@@ -73,14 +79,6 @@
   <span class="checkmark"></span>
 </label>
 <label class="container">Two
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Three
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Four
   <input type="radio" name="radio">
   <span class="checkmark"></span>
 </label>
