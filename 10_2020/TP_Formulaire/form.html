@@ -28,14 +28,14 @@
             </div>
             <!--INPUT-->
             <div class='name'>
-                    <input type="text" id='first_name'>
+                    <input type="text" id='first_name' required pattern="[A-Za-z]{2,20}">
                     <small>
                         <label for="first_name">First Name</label>
                     </small>
             </div>
             <!--INPUT-->
             <div class='name'>
-                <input type="text" id='last_name'>
+                <input type="text" id='last_name' required pattern="[A-Za-z]{2,20}">
                 <small>
                     <label for="last_name">Last Name</label>
                 </small>
@@ -49,7 +49,7 @@
                 <span><label for="company_name">Company</label> </span>
             </div>
             <div id='company'>
-                <input type="text" id='company_name'>
+                <input type="text" id='company_name' required pattern="[A-Za-z0-9.- %@_&#]{30}">
             </div>
         </div>
 
@@ -61,7 +61,7 @@
             </div>
             <div  id='email'>
                 <!--INPUT-->
-                <input type="email" id='customer_email'>
+                <input type="email" id='customer_email' required > <!--pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"-->
             </div>
         </div>
 
@@ -73,12 +73,12 @@
             </div>
             <!--INPUT-->
             <div id='code'>
-                <input type="text" id='area_code'>
+                <input type="tel" id='area_code' required pattern="[0-9]{3}">
                 <small><label for="area_code">Area Code</label></small>
             </div>
             <!--INPUT-->
             <div id='number'>
-                <input type="text" id='phone_number'>
+                <input type="tel" id='phone_number' required>
                 <small><label for="phone_number">Phone number</label></small>
             </div>
         </div>
@@ -92,8 +92,10 @@
             
             <!--INPUT-->
             <div class='mystyle'>
-                <select>
+                <select required>
                     <option>Choose option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
                 </select>
             </div>
             
