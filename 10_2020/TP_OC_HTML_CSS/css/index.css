@@ -34,6 +34,10 @@ body{
     background-image: url(../images/fond_jaune.png);
 }
 
+
+
+/*HEADER ET NAVIGATION*/
+
 header{
     width: 90%;
     margin: auto;
@@ -65,4 +69,15 @@ nav ul{
 
 nav li {
     padding: 10px;
+}
+
+
+/*BANNIERE*/
+
+#banniere{
+    border: 1px solid red;
+    background-image: url(../images/sanfrancisco.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
 }
