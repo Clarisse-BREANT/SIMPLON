@@ -1,6 +1,13 @@
+/*FONT*/
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
+
+/*BODY*/
+
 body{
+    min-height: 100vh;
+    padding: 0%;
     text-align: center;
     margin: 5%;
     background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.rubrik.com%2Fwp-content%2Fuploads%2F2018%2F09%2FData-Abstract.jpg&f=1&nofb=1);
@@ -10,4 +17,43 @@ body{
     background-size: cover;
     color: white;
     font-family: 'Orbitron', sans-serif;
+}
+
+
+/*HEADER*/
+
+header nav{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+header ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 0%;
+}
+
+header li{
+    list-style: none;
+    width: 20%;
+    border: 2px solid rgb(0, 217, 255);
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+header li a {
+    text-decoration: none;
+}
+
+
+/*FOOTER*/
+
+footer{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
 }
