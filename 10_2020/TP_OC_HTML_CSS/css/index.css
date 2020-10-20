@@ -14,5 +14,23 @@ ul{
 li{
     list-style: none;
     width: 20%;
-    border: 2px solid greenyellow;
+    border: 2px solid rgb(0, 217, 255);
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#corpus{
+    margin-top: 10%;
+}
+
+a{
+    color: white;
+}
+
+footer{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width: 100%;
 }
