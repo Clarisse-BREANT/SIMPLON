@@ -1,6 +1,8 @@
 #corpus h1{
     font-weight: bold;
     font-size: 3em;
+    display: inline-block;
+    padding: 20px;
 }
 
 #corpus h1:hover{
@@ -8,9 +10,10 @@
     border: 2px ridge rgb(0, 17, 255);
     background-color: rgba(0, 132, 255, 0.336);
     border-radius: 10px;
-    color: white;
-    padding: 20px;
+    display: inline-block;
+    padding: 18px;
 }
+
 
 img{
     border:1px solid blue;
