@@ -28,7 +28,17 @@
                 <div class='text-center'>
                   <a href="../scripts/create_card.php" class='btn btn-success my-5'>Créer une nouvelle enchère</a>
                 </div>
-                <div class='gestion-article'>
+                <form action="create_card.php">
+                  <input type="text" name='product_name'>
+                  <input type="number" name='price'>
+                  <input type="datetime" name='time'>
+                  <input type="url" name='image'>
+                  <textarea name="" id="" cols="30" rows="10" name='desc'></textarea>
+                  <input type="number" name='steptime'>
+                  <input type="number" name='stepprice'>
+                  <input type="submit" value='Créer'>
+                </form>
+                <div class='gestion-article d-flex'>
                       <?php include '../encheres/card_admin.html' ?>
                 </div>
             </div>
