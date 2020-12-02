@@ -1,3 +1,7 @@
+
+
+<!-- PAGE DE CONNEXION, RESERVEE A L'ADMINISTRATEUR AFIN D'AVOIR ACCES A LA PAGE DE GESTION DES ENCHERES-->
+
 <!doctype html>
 <html lang="fr">
   <head>

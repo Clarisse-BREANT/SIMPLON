@@ -1,3 +1,7 @@
+
+
+<!-- PAGE PRINCIPALE DE LA PLATEFORME -->
+
 <!doctype html>
 <html lang="fr">
   <head>

@@ -1,3 +1,8 @@
+
+
+<!-- PAGE RESERVEE A L'ADMINISTRATEUR LUI PERMETTANT DE GERER LES ENCHERES ET D'EN CREER DE NOUVELLES -->
+
+
 <!doctype html>
 <html lang="fr">
   <head>
