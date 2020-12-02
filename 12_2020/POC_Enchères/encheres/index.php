@@ -22,6 +22,22 @@
                 <a class='btn btn-warning align-self-end' href='../admin/log_in.php'>Administrateur</a>
                 <h1 class='align-self-center'>Nom de la Plateforme</h1>
             </header>
+
+            <section>
+              <div class='container'>
+                <div class='card-deck row row-col-3 d-flex justify-content-around'>
+                  <div class='card-container col-md-4 col text-center'>
+                      <?php include 'card.html' ?>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <footer>
+              <a href="#" class='text-muted'>Mention Légale</a>
+              <a href="#" class='text-muted'>Condition de ventes</a>
+              <a href="#" class='text-muted'>Contact</a>
+            </footer>
         </div>
 
   </body>
