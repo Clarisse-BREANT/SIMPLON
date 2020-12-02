@@ -24,16 +24,14 @@
             </header>
 
             <section>
-              <div class='container'>
+            <div class='container'>
                 <div class='text-center'>
-                    <a href="../scripts/create_card.php" class='btn btn-warning'>Créer une nouvelle enchère</a>
+                  <a href="../scripts/create_card.php" class='btn btn-success my-5'>Créer une nouvelle enchère</a>
                 </div>
-                <div class='card-deck row row-col-3 d-flex justify-content-around'>
-                  <div class='card-container col-md-4 col text-center'>
+                <div class='gestion-article'>
                       <?php include '../encheres/card_admin.html' ?>
-                  </div>
                 </div>
-              </div>
+            </div>
             </section>
 
             <footer>
