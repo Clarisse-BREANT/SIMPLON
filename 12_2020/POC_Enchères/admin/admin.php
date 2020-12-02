@@ -1,4 +1,10 @@
+<?php
+session_start();
 
+if(empty($_SESSION['identifiant'])) {
+  header('Location:../admin/log_in.php');
+}
+?>
 
 <!-- PAGE RESERVEE A L'ADMINISTRATEUR LUI PERMETTANT DE GERER LES ENCHERES ET D'EN CREER DE NOUVELLES -->
 
@@ -30,8 +36,8 @@
                 <h1 class='text-center'>Nom de la Plateforme</h1>
             </header>
             <!--CONTENU-->
-            <section>
             <div class='container d-flex flex-column align-items-center'>
+                <?php echo('Bienvenue ', $_SESSION['identifiant'];) ?>
                 <!--FORMULAIRE-->
                 <form action="../scripts/form.php" class='w-50 form my-5'>
                   <h3 class='text'>Créer une nouvelle enchère</h3>
@@ -65,7 +71,6 @@
                       <?php include '../encheres/card_admin.html' ?>
                 </div>
             </div>
-            </section>
             <!--FOOTER-->
             <footer>
               <a href="#" class='text-muted'>Mention Légale</a>

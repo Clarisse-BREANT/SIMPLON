@@ -1,9 +1,6 @@
-
-
-
-<!-- FONCTION DE SAUVEGARDE DES DONNEES DU FORMULAIRE DANS UN FICHIER JSON -->
-
 <?php
+
+//SAUVEGARDE DES DONNEES DU FORMULAIRE DANS UN FICHIER JSON
 
 include '../scripts/file.php';
 include '../scripts/class_enchere.php';
@@ -19,7 +16,7 @@ include '../scripts/class_enchere.php';
         && isset($_POST['stepprice'])  && $_POST['stepprice'] != ""){
 
             //Chargement enchères
-            $cartonJson = load();
+            $cartonJson = load_encheres();
 
             $carton=[];
             $offset=0;
@@ -54,7 +51,9 @@ include '../scripts/class_enchere.php';
             );
 
             // ENREGISTREMENT DANS LE FICHIER JSON
-            save($carton);
+            save_encheres($carton);
             
         }
+
+
 ?>
