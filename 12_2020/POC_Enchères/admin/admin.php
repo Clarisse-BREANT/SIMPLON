@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/admin.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -19,31 +20,48 @@
 
   <body>
   <div class='container-fluid'>
+            <!--HEADER-->
             <header class=''>
                 <h1 class='text-center'>Nom de la Plateforme</h1>
             </header>
-
+            <!--CONTENU-->
             <section>
-            <div class='container'>
-                <div class='text-center'>
-                  <a href="../scripts/create_card.php" class='btn btn-success my-5'>Créer une nouvelle enchère</a>
-                </div>
-                <form action="create_card.php">
-                  <input type="text" name='product_name'>
-                  <input type="number" name='price'>
-                  <input type="datetime" name='time'>
-                  <input type="url" name='image'>
-                  <textarea name="" id="" cols="30" rows="10" name='desc'></textarea>
-                  <input type="number" name='steptime'>
-                  <input type="number" name='stepprice'>
-                  <input type="submit" value='Créer'>
+            <div class='container d-flex flex-column align-items-center'>
+                <!--FORMULAIRE-->
+                <form action="create_card.php" class='w-50 form my-5'>
+                  <h3 class='text'>Créer une nouvelle enchère</h3>
+
+                  <label for="product_name">Nom du produit</label>
+                  <input required class='form-control' type="text" name='product_name' id='product_name'>
+
+                  <label for="price">Prix du produit</label>
+                  <input required min='1'class='form-control' type="number" name='price' id='price'>
+
+                  <label for="time">Date d'échéance de l'enchère</label>
+                  <input required class='form-control' type="datetime" name='time' id='time'>
+
+                  <label for="image">Image du produit</label>
+                  <input required class='form-control' type="file" name='image' id='image'>
+
+                  <label for="desc">Description du produit</label>
+                  <textarea class='form-control' name="" id="" cols="30" rows="5" name='desc' id='desc'></textarea>
+
+                  <label for="steptime">Augmentation du temps par clic</label>
+                  <input required min='0' value='0' class='form-control' type="number" name='steptime' id='steptime'>
+
+                  <label for="stepprice">Augmentation du prix par clic</label>
+                  <input required min='1' value='1' class='form-control' type="number" name='stepprice' id='stepprice'>
+
+                  <input class='form-control bg-success my-3' style='color:white;' type="submit" value='Créer une nouvelle enchère'>
                 </form>
-                <div class='gestion-article d-flex'>
+                <!--TABLEAU DES ENCHERES-->
+                <h3>Enchère en cours</h3>
+                <div class='gestion-article d-flex w-100'>
                       <?php include '../encheres/card_admin.html' ?>
                 </div>
             </div>
             </section>
-
+            <!--FOOTER-->
             <footer>
               <a href="#" class='text-muted'>Mention Légale</a>
               <a href="#" class='text-muted'>Condition de ventes</a>
