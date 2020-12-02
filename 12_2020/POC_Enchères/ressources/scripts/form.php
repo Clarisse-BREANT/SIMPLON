@@ -1,6 +1,5 @@
 
 
-
 <!-- FONCTION DE SAUVEGARDE DES DONNEES DU FORMULAIRE DANS UN FICHIER JSON -->
 
 <?php
@@ -8,7 +7,7 @@
 include '../scripts/file.php';
 include '../scripts/class_enchere.php';
 
-//var_dump($_POST); Permet de visualiser les données envoyées
+var_dump($_POST);
     
         if (isset($_POST['name'])      && $_POST['name']      != "" 
         && isset($_POST['price'])      && $_POST['price']     != "" 
