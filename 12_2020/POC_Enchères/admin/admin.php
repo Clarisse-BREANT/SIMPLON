@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include '../scripts/log_in.php';
 if(empty($_SESSION['identifiant'])) {
   header('Location:../admin/log_in.php');
 }
@@ -37,7 +37,7 @@ if(empty($_SESSION['identifiant'])) {
             </header>
             <!--CONTENU-->
             <div class='container d-flex flex-column align-items-center'>
-                <?php echo('Bienvenue ', $_SESSION['identifiant'];) ?>
+                <?php echo 'Bienvenue ', $_SESSION['identifiant']; ?>
                 <!--FORMULAIRE-->
                 <form action="../scripts/form.php" class='w-50 form my-5'>
                   <h3 class='text'>Créer une nouvelle enchère</h3>
@@ -68,7 +68,7 @@ if(empty($_SESSION['identifiant'])) {
                 <!--TABLEAU DES ENCHERES-->
                 <h3>Enchère en cours</h3>
                 <div class='gestion-article d-flex w-100'>
-                      <?php include '../encheres/card_admin.html' ?>
+                      <?php include '../encheres/card_admin.html'; ?>
                 </div>
             </div>
             <!--FOOTER-->

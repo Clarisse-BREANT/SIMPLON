@@ -23,12 +23,23 @@
   </head>
 
   <body>
-  <form action="admin.php" method="POST">
+    <form action="../scripts/log_in.php" method="POST">
           <label for="identifiant">Identifiant:</label>
-          <input type="text" placeholder='admin' id='identifiant' name='identifiant' required>
+          <input type="text" placeholder='admin' id='identifiant' name='identifiant' formmethod='POST' required>
           <label for="mot-de-passe">Mot de passe:</label>
-          <input type="password" placeholder='password' id='mot-de-passe' name='password' required>
+          <input type="password" placeholder='password' id='mot-de-passe' name='password' formmethod='POST' required>
           <button type="submit" class="btn btn-primary">Se connecter</button> <!-- Il faudra trouver un autre moyen que submit-->
       </form>
+      <?php 
+        include '../scripts/log_in.php';
+        session_start();
+        if (!empty($errormessage)) {
+          echo '<p>', htmlspecialchars($errormessage) ,'</p>';
+        }
+        else{
+          var_dump($_SESSION);
+          echo($errormessage);
+        }
+      ?>
   </body>
 </html>
