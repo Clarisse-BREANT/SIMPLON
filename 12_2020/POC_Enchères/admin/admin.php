@@ -1,8 +1,8 @@
 <?php
 session_start();
 include '../scripts/log_in.php';
-if(empty($_SESSION['identifiant'])) {
-  header('Location:../admin/log_in.php');
+if(empty($_SESSION['identifiant']) || isset($err)) {
+  header('Location:../admin/log_in.php?err=' . $err);
 }
 ?>
 
@@ -32,12 +32,14 @@ if(empty($_SESSION['identifiant'])) {
   <body>
   <div class='container-fluid'>
             <!--HEADER-->
-            <header class=''>
-                <h1 class='text-center'>Nom de la Plateforme</h1>
+            <header class='d-flex flex-column'>
+                <form class='align-self-end' action="../admin/log_in.php">
+                  <button class='btn btn-danger' name="logout" formmethod="POST" type='submit'> DECONNEXION </button>
+                </form>
+                <h1 class='align-self-center text-center'>Nom de la Plateforme</h1>
             </header>
             <!--CONTENU-->
             <div class='container d-flex flex-column align-items-center'>
-                <?php echo 'Bienvenue ', $_SESSION['identifiant']; ?>
                 <!--FORMULAIRE-->
                 <form action="../scripts/form.php" class='w-50 form my-5'>
                   <h3 class='text'>Créer une nouvelle enchère</h3>

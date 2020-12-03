@@ -34,7 +34,8 @@
                   <div class='card-container col-md-4 col text-center'>
                       <?php 
                       include '../scripts/class_encheres.php';
-                      for ($temp = 0; $temp < count($carton); $temp++) {
+                      
+                      for ($i = 0; $i < count($carton); $i++) {
                             $carton[$temp]->display();
                       }
                       ?>
