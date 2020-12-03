@@ -31,7 +31,7 @@
             <section>
               <div class='container'>
                 <div class='card-deck row row-col-3 d-flex justify-content-around'>
-                  <div class='card-container col-md-4 col text-center'>
+                  <div class='card-container col-md-4 col-lg-4 col text-center'>
                       <?php 
                       include '../scripts/class_enchere.php';
                       include '../scripts/file.php';

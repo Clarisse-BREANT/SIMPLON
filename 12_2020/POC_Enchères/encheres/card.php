@@ -7,9 +7,9 @@
         <h5 class='card-title font-weight-bold'>Nom du produit : <?php echo $this->m_name; ?></h5>
     </div>
     <div class='card-body'>
-        <h5 class='card-title font-weight-bold' style='color:crimson;'>Prix du produit : <?php echo $this->m_price; ?></h5>
+        <h5 class='card-title font-weight-bold' style='color:red;'>Prix du produit : <?php echo $this->m_price; ?></h5>
         <img class='card-img' src="<?php echo $this->m_image; ?>" alt="Iphone">
-        <p class='card-text font-weight-bold' style='color:crimson;'>Temps restant : <?php echo date("H:i:s", - $this->m_time - time() -3600)?> </p>
+        <p class='card-text font-weight-bold' style='color:red;'>Temps restant : <?php echo date("H:i:s", - $this->m_time - time() -3600)?> </p>
         <button class='btn btn-warning w-75'>ACHETER</button>
     </div>
     <div class='card-footer'>
