@@ -11,7 +11,7 @@ class Enchere implements JsonSerializable {
     private $m_steptime = 0;
     private $m_stepprice = 0;
 
-    public function __construct($id, $name, $price, $time, $image, $desc, $steptime, $stepprice) {
+    public function __construct(/*$id,*/ $name, $price, $time, $image, $desc, $steptime, $stepprice) {
         $this->m_name      = $name;
         //$this->m_id        = $id;
         $this->m_price     = $price;
@@ -20,6 +20,10 @@ class Enchere implements JsonSerializable {
         $this->m_desc      = $desc;
         $this->m_steptime  = $steptime;
         $this->m_stepprice = $stepprice;
+    }
+
+    public function display() {
+        include '../encheres/card.html';
     }
 
     public function getId() {

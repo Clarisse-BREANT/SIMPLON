@@ -32,7 +32,12 @@
               <div class='container'>
                 <div class='card-deck row row-col-3 d-flex justify-content-around'>
                   <div class='card-container col-md-4 col text-center'>
-                      <?php include 'card.html' ?>
+                      <?php 
+                      include '../scripts/class_encheres.php';
+                      for ($temp = 0; $temp < count($carton); $temp++) {
+                            $carton[$temp]->display();
+                      }
+                      ?>
                   </div>
                 </div>
               </div>
