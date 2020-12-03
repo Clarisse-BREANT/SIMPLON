@@ -33,11 +33,59 @@
                 <div class='card-deck row row-col-3 d-flex justify-content-around'>
                   <div class='card-container col-md-4 col text-center'>
                       <?php 
-                      include '../scripts/class_encheres.php';
-                      
-                      for ($i = 0; $i < count($carton); $i++) {
-                            $carton[$temp]->display();
+                      include '../scripts/class_enchere.php';
+                      include '../scripts/file.php';
+
+                      $cartonJson = load_encheres();
+                      $carton = [];
+
+                      $offset = 0;
+
+
+                      for ($i = 0; $i < couton($cartonJson); $i++) {
+
+                        if ($cartonJson[$i]["m_time"] > time() ){
+                          $carton[$i-$offset] = new Enchere(
+                            $cartonJson[$i]['m_id'],
+                            $cartonJson[$i]['m_name'],
+                            $cartonJson[$i]['m_price'],
+                            $cartonJson[$i]['m_time'],
+                            $cartonJson[$i]['m_image'],
+                            $cartonJson[$i]['m_desc'],
+                            $cartonJson[$i]['m_steptime'],
+                            $cartonJson[$i]['m_stepprice']
+                          );
+                        }
+                        else{
+                          $offset++;
+                        }
                       }
+                      
+                      if ($offset > 0) {
+                        save($carton);
+                      }
+
+                      if(isset($_POST['enchere'])) {
+                        $sseker = 0;
+                        $id = -1;
+
+                        while ($id == -1 && $seeker < count($carton)) {
+                          if ($carton[$seeker]->getId() == $_POST['enchere']) {
+                            $id = $seeker;
+                          }
+                          $seeker++;
+                        }
+
+                        if ($id != -1){
+                          $carton[$id]->enchere();
+                          save($carton);
+                        }
+                      }
+
+                      for ($i = 0; $temp < count($carton); $i++) {
+                        $carton[$temp]->display();
+                      }
+                      
                       ?>
                   </div>
                 </div>
