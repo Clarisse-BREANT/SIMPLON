@@ -21,6 +21,8 @@ include '../scripts/class_enchere.php';
             $carton=[];
             $offset=0;
 
+            $date_time= new DateTime($_POST['time']);
+
             //Création des objets toujours existant php
             for ($i=0; $i < count($cartonJson); $i++){
                 if ($cartonJson[$i]['m_time'] > time() ) {
@@ -32,8 +34,7 @@ include '../scripts/class_enchere.php';
                                             $cartonJson[$i]["m_image"],
                                             $cartonJson[$i]["m_desc"],
                                             $cartonJson[$i]["m_steptime"],
-                                            $cartonJson[$i]["m_stepprice"],
-                                            $cartonJson[$i]["m_name"]
+                                            $cartonJson[$i]["m_stepprice"]
                                         );
                 } else {$offset++;}
             }
@@ -43,7 +44,7 @@ include '../scripts/class_enchere.php';
                                             //$_POST["id"],
                                             $_POST["name"],
                                             $_POST["price"],
-                                            $_POST["time"],
+                                            $date_time->getTimestamp(),
                                             $_POST["image"],
                                             $_POST["desc"],
                                             $_POST["steptime"],

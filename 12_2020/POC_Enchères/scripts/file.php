@@ -1,5 +1,9 @@
 <?php
 // CHARGEMENT DU FICHIER ENCHERE
+/**
+ Faire plutôt 1 fonction avec des paramètres plutôt que deux fonctions
+ */
+
 function load_encheres() {
     $json = file_get_contents("../data/encheres.json");
     return json_decode($json,true);

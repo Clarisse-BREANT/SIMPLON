@@ -23,7 +23,7 @@ class Enchere implements JsonSerializable {
     }
 
     public function display() {
-        include '../encheres/card.html';
+        include '../encheres/card.php';
     }
 
     public function getId() {

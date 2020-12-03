@@ -42,11 +42,11 @@
                       $offset = 0;
 
 
-                      for ($i = 0; $i < couton($cartonJson); $i++) {
+                      for ($i = 0; $i < count($cartonJson); $i++) {
 
                         if ($cartonJson[$i]["m_time"] > time() ){
                           $carton[$i-$offset] = new Enchere(
-                            $cartonJson[$i]['m_id'],
+                            //$cartonJson[$i]['m_id'],
                             $cartonJson[$i]['m_name'],
                             $cartonJson[$i]['m_price'],
                             $cartonJson[$i]['m_time'],
@@ -62,30 +62,30 @@
                       }
                       
                       if ($offset > 0) {
-                        save($carton);
+                        save_encheres($carton);
                       }
 
                       if(isset($_POST['enchere'])) {
-                        $sseker = 0;
-                        $id = -1;
+                        $seeker = 0;
+                        $target = -1;
 
-                        while ($id == -1 && $seeker < count($carton)) {
+                        while ($target == -1 && $seeker < count($carton)) {
                           if ($carton[$seeker]->getId() == $_POST['enchere']) {
-                            $id = $seeker;
+                            $target = $seeker;
                           }
                           $seeker++;
                         }
 
-                        if ($id != -1){
-                          $carton[$id]->enchere();
-                          save($carton);
+                        if ($target != -1){
+                          $carton[$target]->enchere();
+                          save_encheres($carton);
                         }
                       }
 
-                      for ($i = 0; $temp < count($carton); $i++) {
-                        $carton[$temp]->display();
+                      for ($i = 0; $i < count($carton); $i++) {
+                        $carton[$i]->display();
                       }
-                      
+
                       ?>
                   </div>
                 </div>
