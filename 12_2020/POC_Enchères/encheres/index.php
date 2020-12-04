@@ -65,7 +65,7 @@
                         save_encheres($carton);
                       }
 
-                      if(isset($_POST['enchere'])) {
+                      if(isset($_POST['encherir'])) {
                         $seeker = 0;
                         $target = -1;
 
