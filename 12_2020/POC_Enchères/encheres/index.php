@@ -20,22 +20,32 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
-
+<?php include '../scripts/file.php';
+   include '../scripts/class_enchere.php';
+?>
   <body>
         <div class='container-fluid'>
             <header class='d-flex flex-column justify-content-around'>
-                <a class='btn btn-warning align-self-end' href='../admin/log_in.php'>Administrateur</a>
+              <?php  $logJson = load_log();
+                  session_start();
+                  if ($_SESSION['identifiant'] == htmlspecialchars($logJson[0]["identifiant"])){
+              ?>
+                      <a class='btn btn-warning align-self-end' href='../admin/admin.php'>Administrateur</a>
+              <?php
+                  }
+                  else{
+              ?>
+                      <a class='btn btn-warning align-self-end' href='../admin/log_in.php'>Administrateur</a>
+              <?php
+                  }
+              ?>
                 <h1 class='align-self-center'>Nom de la Plateforme</h1>
             </header>
 
             <section>
               <div class='container'>
-                <div class='card-deck row row-col-3 d-flex justify-content-around'>
-                  <div class='card-container col-md-4 col-lg-4 col text-center'>
+                <div class='card-deck row row-col-3 d-flex justify-content-around text-center'>
                       <?php 
-                      include '../scripts/class_enchere.php';
-                      include '../scripts/file.php';
-
                       $cartonJson = load_encheres();
                       $carton = [];
 
@@ -44,21 +54,21 @@
 
                       for ($i = 0; $i < count($cartonJson); $i++) {
 
-                        if ($cartonJson[$i]["m_time"] > time() ){
-                          $carton[$i-$offset] = new Enchere(
-                            //$cartonJson[$i]['m_id'],
-                            $cartonJson[$i]['m_name'],
-                            $cartonJson[$i]['m_price'],
-                            $cartonJson[$i]['m_time'],
-                            $cartonJson[$i]['m_image'],
-                            $cartonJson[$i]['m_desc'],
-                            $cartonJson[$i]['m_steptime'],
-                            $cartonJson[$i]['m_stepprice']
-                          );
-                        }
-                        else{
-                          $offset++;
-                        }
+                          if ($cartonJson[$i]["m_time"] > time() ){
+                            $carton[$i-$offset] = new Enchere(
+                                                      $cartonJson[$i]['m_id'],
+                                                      $cartonJson[$i]['m_name'],
+                                                      $cartonJson[$i]['m_price'],
+                                                      $cartonJson[$i]['m_time'],
+                                                      $cartonJson[$i]['m_image'],
+                                                      $cartonJson[$i]['m_desc'],
+                                                      $cartonJson[$i]['m_steptime'],
+                                                      $cartonJson[$i]['m_stepprice']
+                            );
+                          }
+                          else{
+                            $offset++;
+                          }
                       }
                       
                       if ($offset > 0) {
@@ -70,7 +80,7 @@
                         $target = -1;
 
                         while ($target == -1 && $seeker < count($carton)) {
-                          if ($carton[$seeker]->getId() == $_POST['enchere']) {
+                          if ($carton[$seeker]->getId() == $_POST['encherir']) {
                             $target = $seeker;
                           }
                           $seeker++;
@@ -87,7 +97,6 @@
                       }
 
                       ?>
-                  </div>
                 </div>
               </div>
             </section>

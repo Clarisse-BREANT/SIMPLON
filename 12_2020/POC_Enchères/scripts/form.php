@@ -53,7 +53,7 @@ include '../scripts/class_enchere.php';
 
             // ENREGISTREMENT DANS LE FICHIER JSON
             save_encheres($carton);
-            
+            header('Location:../encheres/index.php');
         }
 
 

@@ -41,7 +41,7 @@ if(empty($_SESSION['identifiant']) || isset($err)) {
             <!--CONTENU-->
             <div class='container d-flex flex-column align-items-center'>
                 <!--FORMULAIRE-->
-                <form action="../scripts/form.php" class='w-50 form my-5'>
+                <form action="../scripts/form.php" method='post' class='w-50 form my-5'>
                   <h3 class='text'>Créer une nouvelle enchère</h3>
 
                   <label for="product_name">Nom du produit</label>
@@ -51,7 +51,7 @@ if(empty($_SESSION['identifiant']) || isset($err)) {
                   <input required min='1'class='form-control' type="number" name='price' id='price' formmethod="post">
 
                   <label for="time">Date d'échéance de l'enchère</label>
-                  <input required class='form-control' type="time" name='time' id='time' formmethod="post">
+                  <input required class='form-control' type="date" name='time' id='time' formmethod="post">
 
                   <label for="image">Image du produit</label>
                   <input class='form-control' type="file" name='image' id='image' formmethod="post">
