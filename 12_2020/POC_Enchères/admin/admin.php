@@ -1,6 +1,8 @@
 <?php
 session_start();
 include '../scripts/log_in.php';
+//Si la variable $_SESSION['identifiant'] est vide et qu'il existe un message d'erreur (ergo, l'utilisateur a tenté de se connecté en vain)
+  //Alors on le redirige vers la page de login à laquelle on ajoute en url la variable $err (correspondant à l'erreur de l'utilisateur sur sa tentative de connexion) accessible par la méthode GET
 if(empty($_SESSION['identifiant']) || isset($err)) {
   header('Location:../admin/log_in.php?err=' . $err);
 }
