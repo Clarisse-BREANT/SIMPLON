@@ -21,7 +21,8 @@ include '../scripts/class_enchere.php';
         && isset($_POST['stepprice'])  && $_POST['stepprice'] != ""){
 
             //Chargement enchères
-            $cartonJson = load_encheres();
+            $file = "encheres";
+            $cartonJson = load($file);
             $carton=[];
             $offset=0;
 
@@ -36,14 +37,14 @@ include '../scripts/class_enchere.php';
                                             $cartonJson[$i]["m_image"],
                                             $cartonJson[$i]["m_desc"],
                                             $cartonJson[$i]["m_steptime"],
-                                            $cartonJson[$i]["m_stepprice"]
+                                            $cartonJson[$i]["m_stepprice"],
+                                            $cartonJson[$i]["m_status"]
                                         );
                 } else {$offset++;}
             }
 
             // CREATION ET INSERTION DE LA NOUVELLE ENCHERE
             $date_time= new DateTime($_POST['time']);
-            
             $carton[$i - $offset] = new Enchere(
                                             sizeof($carton),
                                             $_POST["name"],
@@ -56,7 +57,7 @@ include '../scripts/class_enchere.php';
             );
 
             // ENREGISTREMENT DANS LE FICHIER JSON
-            save_encheres($carton);
+            save($carton, $file);
             header('Location:../encheres/index.php');
             
         }

@@ -27,7 +27,9 @@
         <div class='container-fluid'>
             <!-- HEADER -->
             <header class='d-flex flex-column justify-content-around'>
-              <?php  $logJson = load_log();
+              <?php  
+                  $file = "log";
+                  $logJson = load($file);
                   session_start();
                   //Si l'administrateur est connecté, alors le bouton Administrateur le conduit à la page d'admin, sinon il conduit l'utilisateur à la page de connection admin.
                   if ( isset($_SESSION['identifiant']) && $_SESSION['identifiant'] == htmlspecialchars($logJson[0]["identifiant"]) ){
@@ -50,13 +52,15 @@
                 <div class='card-deck row row-col-3 d-flex justify-content-around text-center'>
                       <?php 
                       //On charge les données du Json dans un tableau
-                      $cartonJson = load_encheres();
+                      $file = "encheres";
+                      $cartonJson = load($file);
                       $carton = [];
-
+                      $card="card";
                       $offset = 0;
+
                       //Pour chaque élément du tableau de données, on regarde si le temps restant de l'enchère est toujours valide. Si oui on l'ajoute au tableau $carton, sinon, l'enchère ne sera pas sauvegardée.
                       for ($i = 0; $i < count($cartonJson); $i++) {
-                          if ($cartonJson[$i]["m_time"] > time() ){
+                          if ($cartonJson[$i]["m_time"] > time() && $carton[$i]['m_status'] != 'deleted'){
                             $carton[$i-$offset] = new Enchere(
                                                       $cartonJson[$i]['m_id'],
                                                       $cartonJson[$i]['m_name'],
@@ -65,7 +69,8 @@
                                                       $cartonJson[$i]['m_image'],
                                                       $cartonJson[$i]['m_desc'],
                                                       $cartonJson[$i]['m_steptime'],
-                                                      $cartonJson[$i]['m_stepprice']
+                                                      $cartonJson[$i]['m_stepprice'],
+                                                      $cartonJson[$i]['m_status']
                             );
                           }
                           else{
@@ -74,7 +79,7 @@
                       }
                       
                       if ($offset > 0) {
-                        save_encheres($carton);
+                        save($carton, $file);
                       }
 
                       //Si un utilisateur clic sur le bouton d'enchère:
@@ -92,13 +97,13 @@
                         }
                         if ($target != -1){
                           $carton[$target]->enchere();
-                          save_encheres($carton);
+                          save($carton, $file);
                         }
                       }
 
                       //Pour chaque éléments sauvegardé dans $carton, on affiche les cartes d'enchères
                       for ($i = 0; $i < count($carton); $i++) {
-                        $carton[$i]->display();
+                        $carton[$i]->display($card);
                       }
 
                       ?>
