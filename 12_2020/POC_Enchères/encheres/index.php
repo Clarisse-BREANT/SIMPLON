@@ -1,5 +1,4 @@
 
-
 <!-- PAGE PRINCIPALE DE LA PLATEFORME -->
 
 <!doctype html>
@@ -56,12 +55,13 @@
                       $cartonJson = load($file);
                       $carton = [];
                       $card="card";
-                      $offset = 0;
+                      $off = 0;
 
                       //Pour chaque élément du tableau de données, on regarde si le temps restant de l'enchère est toujours valide. Si oui on l'ajoute au tableau $carton, sinon, l'enchère ne sera pas sauvegardée.
                       for ($i = 0; $i < count($cartonJson); $i++) {
-                          if ($cartonJson[$i]["m_time"] > time() && $carton[$i]['m_status'] != 'deleted'){
-                            $carton[$i-$offset] = new Enchere(
+                          if ($cartonJson[$i]["m_time"] > time() 
+                            && $cartonJson[$i]['m_status'] != 'deleted' ){
+                                    $carton[$i-$off] = new Enchere(
                                                       $cartonJson[$i]['m_id'],
                                                       $cartonJson[$i]['m_name'],
                                                       $cartonJson[$i]['m_price'],
@@ -74,11 +74,11 @@
                             );
                           }
                           else{
-                            $offset++;
+                            $off++;
                           }
                       }
                       
-                      if ($offset > 0) {
+                      if ($off > 0) {
                         save($carton, $file);
                       }
 
@@ -98,12 +98,15 @@
                         if ($target != -1){
                           $carton[$target]->enchere();
                           save($carton, $file);
+                          //Pour défaire la variable $_POST et éviter que les incrémentations se fasse à chaque rafraichissement
+                          header('Location:../encheres/index.php');
                         }
                       }
 
                       //Pour chaque éléments sauvegardé dans $carton, on affiche les cartes d'enchères
                       for ($i = 0; $i < count($carton); $i++) {
-                        $carton[$i]->display($card);
+                        if ($carton[$i]->getStatus() == 'active'){
+                            $carton[$i]->display($card);}
                       }
 
                       ?>

@@ -15,58 +15,95 @@ $file="encheres";
 $cartonJson = load($file);
 $carton = [];
 $card="card_admin";
-$offset = 0;
-//Pour chaque élément du tableau de données, on regarde si le temps restant de l'enchère est toujours valide. Si oui on l'ajoute au tableau $carton, sinon, l'enchère ne sera pas sauvegardée.
-for ($i = 0; $i < count($cartonJson); $i++) {
-    if ($cartonJson[$i]["m_time"] > time() && $cartonJson[$i]["m_status"] != "deleted" ){
-      $carton[$i-$offset] = new Enchere(
-                                $cartonJson[$i]['m_id'],
-                                $cartonJson[$i]['m_name'],
-                                $cartonJson[$i]['m_price'],
-                                $cartonJson[$i]['m_time'],
-                                $cartonJson[$i]['m_image'],
-                                $cartonJson[$i]['m_desc'],
-                                $cartonJson[$i]['m_steptime'],
-                                $cartonJson[$i]['m_stepprice'],
-                                $cartonJson[$i]['m_status']
-      );
-    }
-    else{
-      $offset++;
-    }
-}
+$off = 0;
 
 // MANAGE
 
-for ($i=0; $i < count($carton); $i++) {
+$manage = '';
 
-  if( isset($_POST['show/hide']) || isset($_POST['edit']) || isset($_POST['delete']) ) {
+//Si la carte n'est pas éditée, le formulaire de base contiendra les données ci dessous
+$f_name = '';
+$f_price = 0;
+$f_time = 0;
+$f_image = '';
+$f_desc = 'Entrez une description';
+$f_steptime = 0;
+$f_stepprice = 1;
 
-      $seeker = 0;
-      $target = -1;
+//Si il y a ey une requête POST, on définie la variable $manage
+if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete']) ) {
+  //On change la variable $manage selon quel bouton a été appuyé
+  if (isset($_POST['show_hide'])) {
+    $manage = 'show_hide';
+  }
+  elseif (isset($_POST['edit'])){
+    $manage = 'edit';
+  }
+  elseif (isset($_POST['delete'])){
+    $manage='delete';
+  }
+  else {echo 'ERROR, WRONG POST FOUND';}
 
+  //Puis on cherche quel est l'enchère associé à l'action
+    $seeker = 0;
+    $target = -1;
+      //On cherche l'id de l'enchère concerné par le clic
       while ($target == -1 && $seeker < count($carton)) {
-        if ( ($carton[$seeker]->getId() == $_POST['show/hide']) 
-          || ($carton[$seeker]->getId() == $_POST['edit'])
-          || ($carton[$seeker]->getId() == $_POST['delete']) ) {
+        if ( ($carton[$seeker]->getId() == $_POST[$manage]) ) {
           $target = $seeker;
         }
         $seeker++;
       }
 
+      //Lorsqu'on l'a trouvé on fait une action qui varie selon le bouton cliqué
       if ($target != -1) {
-          if (isset($_POST['show/hide']) ) {
+        //On change le status de la carte
+          if ($manage == 'show_hide') {
+              echo $manage;
               $carton[$target]->changeStatus();
               save($carton, $file);
           }
 
-          elseif (isset($_POST['delete']) ){
+          //On supprime la carte
+          elseif ($manage == 'delete') {
             $carton[$target]->deleteCard();
             save($carton, $file);
-            header('Location:../admin/admin.php');
+            //header('Location:../admin/admin.php');
           }
-      }
-      
+
+          //On edit la carte
+          elseif ($manage == 'edit') {
+            //Les variables qui seront dans le formulaire, prennent les valeurs de l'enchère selectionnee 
+            //$f_name = ;
+            //$f_price = ;
+            //$f_time = ;
+            //$f_image = ;
+            //$f_desc = ;
+            //$f_steptime = ;
+            //$f_stepprice = ;
+            //header('Location:../admin/admin.php');
+          }
+      }  
+}
+
+//  AFFICHAGE TABLEAU
+//Pour chaque élément du tableau de données, on regarde si le temps restant de l'enchère est toujours valide. Si oui on l'ajoute au tableau $carton, sinon, l'enchère ne sera pas sauvegardée.
+for ($i = 0; $i < count($cartonJson); $i++) {
+  if ($cartonJson[$i]["m_time"] > time() && $cartonJson[$i]["m_status"] != "deleted" ){
+    $carton[$i-$off] = new Enchere(
+                              $cartonJson[$i]['m_id'],
+                              $cartonJson[$i]['m_name'],
+                              $cartonJson[$i]['m_price'],
+                              $cartonJson[$i]['m_time'],
+                              $cartonJson[$i]['m_image'],
+                              $cartonJson[$i]['m_desc'],
+                              $cartonJson[$i]['m_steptime'],
+                              $cartonJson[$i]['m_stepprice'],
+                              $cartonJson[$i]['m_status']
+    );
+  }
+  else{
+    $off++;
   }
 }
 ?>
@@ -110,30 +147,35 @@ for ($i=0; $i < count($carton); $i++) {
                   <h3 class='text'>Créer une nouvelle enchère</h3>
 
                   <label for="product_name">Nom du produit</label>
-                  <input required class='form-control' type="text" name='name' id='product_name' formmethod="post">
+                  <input required class='form-control' type="text" name='name' id='product_name' formmethod="post" 
+                    value='<?php echo $f_name ?>'>
 
                   <label for="price">Prix du produit</label>
-                  <input required min='1'class='form-control' type="number" name='price' id='price' formmethod="post">
+                  <input required min='1'class='form-control' type="number" name='price' id='price' formmethod="post"
+                    value='<?php echo $f_price ?>'>
 
                   <label for="time">Date d'échéance de l'enchère</label>
-                  <input required class='form-control' type="date" name='time' id='time' formmethod="post">
+                  <input required class='form-control' type="date" name='time' id='time' formmethod="post"
+                    value='<?php echo $f_time ?>'>
 
                   <label for="image">Image du produit</label>
-                  <input class='form-control' type="file" name='image' id='image' formmethod="post">
+                  <input class='form-control' type="file" name='image' id='image' formmethod="post"
+                    value='<?php echo $f_image ?>'>
 
                   <label for="desc">Description du produit</label>
-                  <textarea class='form-control' cols="30" rows="5" name='desc' id='desc' formmethod="post"></textarea>
+                  <textarea class='form-control' cols="30" rows="5" name='desc' id='desc' formmethod="post"
+                    value='<?php echo $f_desc ?>'><?php echo $f_desc ?></textarea>
 
                   <label for="steptime">Augmentation du temps par clic</label>
-                  <input required min='0' value='0' class='form-control' type="number" name='steptime' id='steptime' formmethod="post">
+                  <input required min='0' value='0' class='form-control' type="number" name='steptime' id='steptime' formmethod="post"
+                    value='<?php echo $f_steptime ?>'>
 
                   <label for="stepprice">Augmentation du prix par clic</label>
-                  <input required min='1' value='1' class='form-control' type="number" name='stepprice' id='stepprice' formmethod="post">
+                  <input required min='1' value='1' class='form-control' type="number" name='stepprice' id='stepprice' formmethod="post"
+                    value='<?php echo $f_stepprice ?>'>
 
                   <input class='form-control bg-success my-3' style='color:white;' type="submit" value='Créer une nouvelle enchère' formmethod="post">
                 </form>
-
-
 
                 
                 <!--TABLEAU DES ENCHERES-->
@@ -156,7 +198,8 @@ for ($i=0; $i < count($carton); $i++) {
                     </thead>
                     <tbody>
                 <?php   
-                      if ($offset > 0) {
+                      //Une fois que toutes les enchères encore valide sont chargées ont les affiche
+                      if ($off > 0) {
                         save($carton, $file);
                       }
 
@@ -169,6 +212,7 @@ for ($i=0; $i < count($carton); $i++) {
                     </table>
                 </div>
             </div>
+
             <!--FOOTER-->
             <footer>
               <a href="#" class='text-muted'>Mention Légale</a>

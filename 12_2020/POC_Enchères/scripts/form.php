@@ -24,12 +24,12 @@ include '../scripts/class_enchere.php';
             $file = "encheres";
             $cartonJson = load($file);
             $carton=[];
-            $offset=0;
+            $off=0;
 
             //Création des objets toujours existant php
             for ($i=0; $i < count($cartonJson); $i++){
                 if ($cartonJson[$i]['m_time'] > time() ) {
-                    $carton[$i-$offset] = new Enchere(
+                    $carton[$i-$off] = new Enchere(
                                             $cartonJson[$i]["m_id"],
                                             $cartonJson[$i]["m_name"],
                                             $cartonJson[$i]["m_price"],
@@ -40,12 +40,12 @@ include '../scripts/class_enchere.php';
                                             $cartonJson[$i]["m_stepprice"],
                                             $cartonJson[$i]["m_status"]
                                         );
-                } else {$offset++;}
+                } else {$off++;}
             }
 
             // CREATION ET INSERTION DE LA NOUVELLE ENCHERE
             $date_time= new DateTime($_POST['time']);
-            $carton[$i - $offset] = new Enchere(
+            $carton[$i - $off] = new Enchere(
                                             sizeof($carton),
                                             $_POST["name"],
                                             $_POST["price"],
