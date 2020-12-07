@@ -46,7 +46,7 @@ include '../scripts/class_enchere.php';
             // CREATION ET INSERTION DE LA NOUVELLE ENCHERE
             $date_time= new DateTime($_POST['time']);
             $carton[$i - $off] = new Enchere(
-                                            sizeof($carton),
+                                            $_POST['id'],
                                             $_POST["name"],
                                             $_POST["price"],
                                             $date_time->getTimestamp(),

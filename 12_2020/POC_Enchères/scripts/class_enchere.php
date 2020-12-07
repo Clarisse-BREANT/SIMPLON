@@ -24,26 +24,20 @@ class Enchere implements JsonSerializable {
         $this->m_status    = $status;
     }
 
+    /** 
+        METHODES
+    */
+    
     //AFFICHE LES ENCHERES
     public function display($card) {
         include ('../encheres/' . $card . '.php');
     }
-
-    //RETOURNE L'ID DE L'ELEMENT
-    public function getId() {
-        return $this->m_id;
-    }
-    
     //INCREMENTE LE TEMPS ET LE PRIX DE L'ENCHERE
     public function enchere() {
         $this->m_price += $this->m_stepprice /100;
         $this->m_time += $this->m_steptime;
     }
 
-    //RETOURNE LE STATUS DE L'ELEMENT
-    public function getStatus() {
-        return $this->m_status;
-    }
     
     //CHANGE LE STATUS DE L'ELEMENT
     public function changeStatus(){
@@ -57,16 +51,51 @@ class Enchere implements JsonSerializable {
 
     //ATTRIBUT UN STATUS DELETED A L'ELEMENT EN VU DE LE SUPPRIMER
     public function deleteCard(){
-        if (isset($_POST['delete'])) {
-            $this->m_status = 'deleted';
-        }
+        $this->m_status = 'deleted';
     }
 
-    //public function editCard(){
-    //
-    //}
 
-    //METHODE DE SERIALIZATION
+    /**
+         GET ATTRIBUTS 
+    */
+
+    //RETOURNE L'ID DE L'ELEMENT
+    public function getId() {
+        return $this->m_id;
+    }
+    
+    //RETOURNE LE STATUS DE L'ELEMENT
+    public function getStatus() {
+        return $this->m_status;
+    }
+
+    public function getName() {
+        return $this->m_name;
+    }
+    public function getPrice() {
+        return $this->m_price;
+    }
+    public function getTime() {
+        return $this->m_time;
+    }
+    public function getImage() {
+        return $this->m_image;
+    }
+    public function getDesc() {
+        return $this->m_desc;
+    }
+    public function getStepTime() {
+        return $this->m_steptime;
+    }
+    public function getStepprice() {
+        return $this->m_stepprice;
+    }
+    
+
+    /**
+        METHODE DE SERIALIZATION 
+    */
+
     public function jsonSerialize() {
         return array(
             "m_id"        => $this->m_id,

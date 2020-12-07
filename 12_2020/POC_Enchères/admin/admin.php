@@ -16,12 +16,32 @@ $cartonJson = load($file);
 $carton = [];
 $card="card_admin";
 $off = 0;
+//Pour chaque élément du tableau de données, on regarde si le temps restant de l'enchère est toujours valide. Si oui on l'ajoute au tableau $carton, sinon, l'enchère ne sera pas sauvegardée.
+for ($i = 0; $i < count($cartonJson); $i++) {
+    if ($cartonJson[$i]["m_time"] > time() && $cartonJson[$i]["m_status"] != "deleted" ){
+      $carton[$i-$off] = new Enchere(
+                                $cartonJson[$i]['m_id'],
+                                $cartonJson[$i]['m_name'],
+                                $cartonJson[$i]['m_price'],
+                                $cartonJson[$i]['m_time'],
+                                $cartonJson[$i]['m_image'],
+                                $cartonJson[$i]['m_desc'],
+                                $cartonJson[$i]['m_steptime'],
+                                $cartonJson[$i]['m_stepprice'],
+                                $cartonJson[$i]['m_status']
+      );
+    }
+    else{
+      $off++;
+    }
+}
 
 // MANAGE
 
 $manage = '';
 
 //Si la carte n'est pas éditée, le formulaire de base contiendra les données ci dessous
+$f_id = sizeof($carton);
 $f_name = '';
 $f_price = 0;
 $f_time = 0;
@@ -59,7 +79,6 @@ if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete'
       if ($target != -1) {
         //On change le status de la carte
           if ($manage == 'show_hide') {
-              echo $manage;
               $carton[$target]->changeStatus();
               save($carton, $file);
           }
@@ -68,43 +87,24 @@ if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete'
           elseif ($manage == 'delete') {
             $carton[$target]->deleteCard();
             save($carton, $file);
-            //header('Location:../admin/admin.php');
+            header('Location:../admin/admin.php');
           }
 
           //On edit la carte
           elseif ($manage == 'edit') {
             //Les variables qui seront dans le formulaire, prennent les valeurs de l'enchère selectionnee 
-            //$f_name = ;
-            //$f_price = ;
-            //$f_time = ;
-            //$f_image = ;
-            //$f_desc = ;
-            //$f_steptime = ;
-            //$f_stepprice = ;
-            //header('Location:../admin/admin.php');
+            $f_id = $carton[$target]->getId();
+            $f_name = $carton[$target]->getName();
+            $f_price = $carton[$target]->getPrice();
+            $f_time = $carton[$target]->getTime();
+            $f_image = $carton[$target]->getImage();
+            $f_desc = $carton[$target]->getDesc();
+            $f_steptime = $carton[$target]->getStepTime();
+            $f_stepprice = $carton[$target]->getStepPrice();
+            $carton[$target]->deleteCard();
+            save($carton, $file);
           }
       }  
-}
-
-//  AFFICHAGE TABLEAU
-//Pour chaque élément du tableau de données, on regarde si le temps restant de l'enchère est toujours valide. Si oui on l'ajoute au tableau $carton, sinon, l'enchère ne sera pas sauvegardée.
-for ($i = 0; $i < count($cartonJson); $i++) {
-  if ($cartonJson[$i]["m_time"] > time() && $cartonJson[$i]["m_status"] != "deleted" ){
-    $carton[$i-$off] = new Enchere(
-                              $cartonJson[$i]['m_id'],
-                              $cartonJson[$i]['m_name'],
-                              $cartonJson[$i]['m_price'],
-                              $cartonJson[$i]['m_time'],
-                              $cartonJson[$i]['m_image'],
-                              $cartonJson[$i]['m_desc'],
-                              $cartonJson[$i]['m_steptime'],
-                              $cartonJson[$i]['m_stepprice'],
-                              $cartonJson[$i]['m_status']
-    );
-  }
-  else{
-    $off++;
-  }
 }
 ?>
 
@@ -143,9 +143,25 @@ for ($i = 0; $i < count($cartonJson); $i++) {
             <!--CONTENU-->
             <div class='container d-flex flex-column align-items-center'>
                 <!--FORMULAIRE-->
+                <?php 
+                //Selon si la carte doit être éditée ou non on change le titre
+                  if (isset($_POST['edit'])){
+                ?>
+                <form action="../scripts/form.php" method='post' class='w-50 form my-5'>
+                  <h3 class='text'>Modifier l'enchère</h3>
+
+                <?php
+                  }
+                  else {
+                ?>
                 <form action="../scripts/form.php" method='post' class='w-50 form my-5'>
                   <h3 class='text'>Créer une nouvelle enchère</h3>
-
+                <?php
+                  }
+                ?>
+                  
+                  <input type="hidden" value='<?php echo $f_id ?>' name='id' id='product_id' formmethod="post" >
+                  
                   <label for="product_name">Nom du produit</label>
                   <input required class='form-control' type="text" name='name' id='product_name' formmethod="post" 
                     value='<?php echo $f_name ?>'>
@@ -164,19 +180,31 @@ for ($i = 0; $i < count($cartonJson); $i++) {
 
                   <label for="desc">Description du produit</label>
                   <textarea class='form-control' cols="30" rows="5" name='desc' id='desc' formmethod="post"
-                    value='<?php echo $f_desc ?>'><?php echo $f_desc ?></textarea>
+                  value='<?php echo $f_desc ?>'><?php echo $f_desc ?></textarea>
 
                   <label for="steptime">Augmentation du temps par clic</label>
-                  <input required min='0' value='0' class='form-control' type="number" name='steptime' id='steptime' formmethod="post"
+                  <input required min='0' class='form-control' type="number" name='steptime' id='steptime' formmethod="post"
                     value='<?php echo $f_steptime ?>'>
 
                   <label for="stepprice">Augmentation du prix par clic</label>
-                  <input required min='1' value='1' class='form-control' type="number" name='stepprice' id='stepprice' formmethod="post"
+                  <input required min='1' class='form-control' type="number" name='stepprice' id='stepprice' formmethod="post"
                     value='<?php echo $f_stepprice ?>'>
 
-                  <input class='form-control bg-success my-3' style='color:white;' type="submit" value='Créer une nouvelle enchère' formmethod="post">
-                </form>
+                <?php 
+                //Selon si la carte doit être éditée ou non on change le bouton et son action
+                  if (isset($_POST['edit'])){
+                ?>
+                <input class='form-control bg-success my-3' style='color:white;' type="submit" value="Modifier l'enchère" formmethod="post">
 
+                <?php
+                  }
+                  else {
+                ?>
+                  <input class='form-control bg-success my-3' style='color:white;' type="submit" value='Créer une nouvelle enchère' formmethod="post">
+                <?php
+                  }
+                ?>
+                </form>
                 
                 <!--TABLEAU DES ENCHERES-->
 
