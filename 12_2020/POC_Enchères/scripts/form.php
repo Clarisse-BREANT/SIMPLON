@@ -20,47 +20,66 @@ include '../scripts/class_enchere.php';
         && isset($_POST['steptime'])   && $_POST['steptime']  != "" 
         && isset($_POST['stepprice'])  && $_POST['stepprice'] != ""){
 
-            //Chargement enchères
-            $file = "encheres";
-            $cartonJson = load($file);
-            $carton=[];
-            $off=0;
+                //Chargement enchères
+                $file = "encheres";
+                $cartonJson = load($file);
+                $carton=[];
+                $off=0;
 
-            //Création des objets toujours existant php
-            for ($i=0; $i < count($cartonJson); $i++){
-                if ($cartonJson[$i]['m_time'] > time() ) {
-                    $carton[$i-$off] = new Enchere(
-                                            $cartonJson[$i]["m_id"],
-                                            $cartonJson[$i]["m_name"],
-                                            $cartonJson[$i]["m_price"],
-                                            $cartonJson[$i]["m_time"],
-                                            $cartonJson[$i]["m_image"],
-                                            $cartonJson[$i]["m_desc"],
-                                            $cartonJson[$i]["m_steptime"],
-                                            $cartonJson[$i]["m_stepprice"],
-                                            $cartonJson[$i]["m_status"]
-                                        );
-                } else {$off++;}
+                //Création des objets toujours existant php
+                for ($i=0; $i < count($cartonJson); $i++){
+                    if ($cartonJson[$i]['m_time'] > time() ) {
+                        $carton[$i-$off] = new Enchere(
+                                                $cartonJson[$i]["m_id"],
+                                                $cartonJson[$i]["m_name"],
+                                                $cartonJson[$i]["m_price"],
+                                                $cartonJson[$i]["m_time"],
+                                                $cartonJson[$i]["m_image"],
+                                                $cartonJson[$i]["m_desc"],
+                                                $cartonJson[$i]["m_steptime"],
+                                                $cartonJson[$i]["m_stepprice"],
+                                                $cartonJson[$i]["m_status"]
+                                            );
+                    } else {$off++;}
+                }
+
+                // CREATION ET INSERTION DE LA NOUVELLE ENCHERE
+                $id=intval($_POST['id']);
+                if (sizeof($_POST['name'])<255){
+                    $name=strval($_POST["name"]);
+                }
+                if ($_POST['price']>1){
+                    $price=floatval($_POST["price"]);
+                }
+                //$_POST['time'];
+                if (sizeof($_POST['image']<255) && sizeof($_POST['desc'])<255){               
+                    $image=strval($_POST["image"]);
+                    $desc=strval($_POST["desc"]);
+                }
+                if ($_POST['steptime']>0){
+                    $steptime=intval($_POST["steptime"]);
+                }
+                if ($_POST['stepprice'] > 1){
+                    $stepprice=intval($_POST["stepprice"]);
+                }
+                $date_time= new DateTime($_POST['time']);
+                $carton[$i - $off] = new Enchere(
+                                                $id,
+                                                $name,
+                                                $price,
+                                                $date_time->getTimestamp(),
+                                                $image,
+                                                $desc,
+                                                $steptime,
+                                                $stepprice
+                );
+
+                // ENREGISTREMENT DANS LE FICHIER JSON
+                save($carton, $file);
+                header('Location:../encheres/index.php');
+                
             }
-
-            // CREATION ET INSERTION DE LA NOUVELLE ENCHERE
-            $date_time= new DateTime($_POST['time']);
-            $carton[$i - $off] = new Enchere(
-                                            $_POST['id'],
-                                            $_POST["name"],
-                                            $_POST["price"],
-                                            $date_time->getTimestamp(),
-                                            $_POST["image"],
-                                            $_POST["desc"],
-                                            $_POST["steptime"],
-                                            $_POST["stepprice"]
-            );
-
-            // ENREGISTREMENT DANS LE FICHIER JSON
-            save($carton, $file);
-            header('Location:../encheres/index.php');
-            
-        }
+        
 
 
 ?>

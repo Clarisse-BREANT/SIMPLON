@@ -56,7 +56,7 @@ else {
             $err = "00";
         }
     }   
-    else {
+    elseif (empty($_SESSION['connexion'])) {
         $err='03';
     }
 }
