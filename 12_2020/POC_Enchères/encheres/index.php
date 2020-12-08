@@ -1,4 +1,5 @@
 
+
 <!-- PAGE PRINCIPALE DE LA PLATEFORME -->
 
 <!doctype html>
@@ -21,6 +22,7 @@
   </head>
 <?php include '../scripts/file.php';
    include '../scripts/class_enchere.php';
+   include '../scripts/htmlentities.php';
 ?>
   <body>
         <div class='container-fluid'>
@@ -31,14 +33,19 @@
                   $logJson = load($file);
                   session_start();
                   //Si l'administrateur est connecté, alors le bouton Administrateur le conduit à la page d'admin, sinon il conduit l'utilisateur à la page de connection admin.
-                  if ( isset($_SESSION['identifiant']) && $_SESSION['identifiant'] == htmlspecialchars($logJson[0]["identifiant"]) ){
+                  if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == "administrateur" ){
               ?>
-                      <a class='btn btn-warning align-self-end' href='../admin/admin.php'>Administrateur</a>
+                    <form action="../secur_admin/admin.php" method='POST'>
+                      <button formmethod='post' type='submit' value='admin' class='btn btn-warning align-self-end' >Administrateur</button>
+                    </form>
+                      
               <?php
                   }
-                  else{
+                  else {
               ?>
-                      <a class='btn btn-warning align-self-end' href='../admin/log_in.php'>Administrateur</a>
+                    <form action="../secur_admin/log_in.php" method='POST'>
+                      <button formmethod='post' type='submit' value='login' class='btn btn-warning align-self-end' >Administrateur</button>
+                    </form>
               <?php
                   }
               ?>

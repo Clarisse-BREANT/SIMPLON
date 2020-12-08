@@ -2,12 +2,15 @@
 session_start();
 include '../scripts/log_in.php';
 include '../scripts/class_enchere.php';
+include '../scripts/htmlentities.php';
 
-//Si la variable $_SESSION['identifiant'] est vide et qu'il existe un message d'erreur (ergo, l'utilisateur a tenté de se connecté en vain)
+//Si la variable $_SESSION['connexion'] est vide et qu'il existe un message d'erreur (ergo, l'utilisateur a tenté de se connecté en vain)
   //Alors on le redirige vers la page de login à laquelle on ajoute en url la variable $err (correspondant à l'erreur de l'utilisateur sur sa tentative de connexion) accessible par la méthode GET
-if(empty($_SESSION['identifiant']) || isset($err)) {
-  header('Location:../admin/log_in.php?err=' . $err);
-
+if(empty($_SESSION['connexion']) || isset($err)) {
+  header('Location:../secur_admin/log_in.php?err=' . $err);
+}
+elseif(empty($_SESSION['connexion']) && !isset($err)){
+  header('Location:../secur_admin/log_in.php');
 }
 
 //On charge les données du Json dans un tableau
@@ -62,7 +65,7 @@ if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete'
   elseif (isset($_POST['delete'])){
     $manage='delete';
   }
-  else {echo 'ERROR, WRONG POST FOUND';}
+  else {echo html('ERROR, WRONG POST FOUND');}
 
   //Puis on cherche quel est l'enchère associé à l'action
     $seeker = 0;
@@ -87,7 +90,7 @@ if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete'
           elseif ($manage == 'delete') {
             $carton[$target]->deleteCard();
             save($carton, $file);
-            header('Location:../admin/admin.php');
+            header('Location:../secur_admin/admin.php');
           }
 
           //On edit la carte
@@ -135,9 +138,12 @@ if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete'
   <div class='container-fluid'>
             <!--HEADER-->
             <header class='d-flex flex-column'>
-                <form class='align-self-end' action="../admin/log_in.php">
+                <form class='align-self-end' action="../secur_admin/log_in.php">
                   <button class='btn btn-danger' name="logout" formmethod="POST" type='submit'> DECONNEXION </button>
                 </form>
+                <!--<form class='align-self-end' action="../secur_admin/log_in.php">
+                  <button class='btn btn-dark' name="login_edit" formmethod="POST" type='submit'> Modifier les identifiants </button>
+                </form>-->
                 <h1 class='align-self-center text-center'>Nom de la Plateforme</h1>
             </header>
             <!--CONTENU-->
@@ -160,35 +166,35 @@ if( isset($_POST['show_hide']) || isset($_POST['edit']) || isset($_POST['delete'
                   }
                 ?>
                   
-                  <input type="hidden" value='<?php echo $f_id ?>' name='id' id='product_id' formmethod="post" >
-                  
+                  <input type="hidden" value='<?php echo html($f_id); ?>' name='id' id='product_id' formmethod="post" >
+
                   <label for="product_name">Nom du produit</label>
                   <input required class='form-control' type="text" name='name' id='product_name' formmethod="post" 
-                    value='<?php echo $f_name ?>'>
+                    value='<?php echo html($f_name); ?>'>
 
                   <label for="price">Prix du produit</label>
                   <input required min='1'class='form-control' type="number" name='price' id='price' formmethod="post"
-                    value='<?php echo $f_price ?>'>
+                    value='<?php echo html($f_price); ?>'>
 
                   <label for="time">Date d'échéance de l'enchère</label>
                   <input required class='form-control' type="date" name='time' id='time' formmethod="post"
-                    value='<?php echo $f_time ?>'>
+                    value='<?php echo html($f_time); ?>'>
 
                   <label for="image">Image du produit</label>
                   <input class='form-control' type="file" name='image' id='image' formmethod="post"
-                    value='<?php echo $f_image ?>'>
+                    value='<?php echo html($f_image); ?>'>
 
                   <label for="desc">Description du produit</label>
                   <textarea class='form-control' cols="30" rows="5" name='desc' id='desc' formmethod="post"
-                  value='<?php echo $f_desc ?>'><?php echo $f_desc ?></textarea>
+                  value='<?php echo html($f_desc); ?>'><?php echo html($f_desc); ?></textarea>
 
                   <label for="steptime">Augmentation du temps par clic</label>
                   <input required min='0' class='form-control' type="number" name='steptime' id='steptime' formmethod="post"
-                    value='<?php echo $f_steptime ?>'>
+                    value='<?php echo html($f_steptime); ?>'>
 
                   <label for="stepprice">Augmentation du prix par clic</label>
                   <input required min='1' class='form-control' type="number" name='stepprice' id='stepprice' formmethod="post"
-                    value='<?php echo $f_stepprice ?>'>
+                    value='<?php echo html($f_stepprice); ?>'>
 
                 <?php 
                 //Selon si la carte doit être éditée ou non on change le bouton et son action

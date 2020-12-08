@@ -27,7 +27,7 @@ class Enchere implements JsonSerializable {
     /** 
         METHODES
     */
-    
+
     //AFFICHE LES ENCHERES
     public function display($card) {
         include ('../encheres/' . $card . '.php');
@@ -53,7 +53,6 @@ class Enchere implements JsonSerializable {
     public function deleteCard(){
         $this->m_status = 'deleted';
     }
-
 
     /**
          GET ATTRIBUTS 
